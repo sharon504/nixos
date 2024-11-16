@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  programs.hyprland = {
+  wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       monitor = "eDP-1,1920x1080@60,auto,1,bitdepth,10";
