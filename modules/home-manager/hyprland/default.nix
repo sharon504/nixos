@@ -2,7 +2,6 @@
 {
   programs.hyprland = {
     enable = true;
-    package = pkgs.hyprland.override { hyprland = pkgs.hyprland.hyprland-git; };
     settings = {
       monitor = "eDP-1,1920x1080@60,auto,1,bitdepth,10";
 
