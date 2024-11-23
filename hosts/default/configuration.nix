@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -21,10 +22,10 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager = {
-	extraSpecialArgs = { inherit inputs; };
-	users = { 
-		"alpha" = import ./home.nix;
-	};
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "alpha" = import ./home.nix;
+    };
   };
 
   # networking.hostName = "nixos"; # Define your hostname.
@@ -51,7 +52,7 @@
   # services.xserver.enable = true;
 
 
-  
+
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";

@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
@@ -14,12 +15,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/21edd11a-c348-428c-bf2d-57bdeae074e3";
+    {
+      device = "/dev/disk/by-uuid/21edd11a-c348-428c-bf2d-57bdeae074e3";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/3437-EE62";
+    {
+      device = "/dev/disk/by-uuid/3437-EE62";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };

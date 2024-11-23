@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim.url  = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,11 +13,11 @@
 
   outputs = { self, nixpkgs, nixvim, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/default/configuration.nix
         inputs.home-manager.nixosModules.default
-	inputs.nixvim.nixosModules.nixvim
+        inputs.nixvim.nixosModules.nixvim
       ];
     };
   };
