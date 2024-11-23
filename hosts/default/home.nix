@@ -14,17 +14,14 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  imports = [ 
-		inputs.nixvim.homeManagerModules.nixvim
-		../../modules/home-manager/hyprland
-		../../modules/home-manager/nvim 
-		];
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ../../modules/home-manager/hyprland
+    ../../modules/home-manager/nvim
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  programs.nixvim = {
-	enable = true;
-  };
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

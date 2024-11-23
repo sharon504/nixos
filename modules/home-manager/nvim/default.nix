@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... } : 
+{ config, lib, pkgs, ... }:
 {
-# programs.nixvim.enable = true;
+  programs.nixvim.enable = true;
 }
