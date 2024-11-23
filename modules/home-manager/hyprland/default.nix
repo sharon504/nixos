@@ -31,27 +31,6 @@
         allow_tearing = false;
       };
 
-      plugin = {
-        overview = {
-          overrideGaps = true;
-          gapsIn = "5";
-          gapsOut = "3";
-          panelHeight = "190";
-          workspaceMargin = "5";
-        };
-        hyprexpo = {
-          columns = "3";
-          gap_size = "5";
-          bg_col = "rgb(111111)";
-          workspace_method = "center current";
-          enable_gesture = true;
-          gesture_distance = "300";
-          gesture_positive = true;
-        };
-      };
-
-
-
       decoration = {
         rounding = "5";
         blur = {
@@ -62,10 +41,6 @@
           xray = true;
           ignore_opacity = true;
         };
-        drop_shadow = true;
-        shadow_range = 2;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = {
@@ -109,7 +84,6 @@
 
       bind = [
         "$mainMod, RETURN, exec, $terminal -o font_size=13"
-        "SUPER, grave, hyprexpo:expo, toggle"
         "$mainMod, B, exec, $browser" # browser
         "$mainMod, W, killactive," # kill active window
         "$mainMod, M, exit," # exit
@@ -173,7 +147,7 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        # "$mainMod, mouse:273, resizewindow"
       ];
     };
   };
