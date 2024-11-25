@@ -1,7 +1,7 @@
 {
   plugins = {
     # Enable and configure Comment.nvim
-    comment-nvim = {
+    comment = {
       enable = true;
 
       # Pre-hook configuration for JSX/TSX support
