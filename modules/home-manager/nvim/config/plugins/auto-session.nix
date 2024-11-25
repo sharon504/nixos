@@ -1,11 +1,10 @@
 {
   plugins.auto-session = {
     enable = true;
-
-    # Main configuration options
-    settingsOptions = {
-      auto_restore = false;
+    settings = {
+      auto_restore_enabled = false;
     };
+    # Main configuration options
   };
 
   # Keymaps for auto-session
