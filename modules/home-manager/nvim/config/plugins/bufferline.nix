@@ -1,18 +1,15 @@
 {
   plugins = {
-    # Enable and configure bufferline
     bufferline = {
       enable = true;
 
-      # Main options
-      options = {
+      # Use settings instead of options
+      settings = {
         mode = "tabs";
       };
     };
 
     # Enable required dependency
-    nvim-web-devicons = {
-      enable = true;
-    };
+    nvim-web-devicons.enable = true;
   };
 }
