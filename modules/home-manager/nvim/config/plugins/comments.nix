@@ -5,7 +5,7 @@
       enable = true;
 
       # Pre-hook configuration for JSX/TSX support
-      mappings.pre_hook = "require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()";
+      pre_hook = "require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()";
     };
 
     # Enable required treesitter context commentstring plugin
