@@ -9,7 +9,6 @@
     ./comments.nix
     ./dressing.nix
     ./formatting.nix
-    ./intent-blank-line.nix
     ./lazygit.nix
     ./linting.nix
     ./lualine.nix
