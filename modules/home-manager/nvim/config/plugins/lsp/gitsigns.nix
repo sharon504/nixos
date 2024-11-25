@@ -1,7 +1,9 @@
 {
   plugins.gitsigns = {
     enable = true;
-    auto_attach = true;
+    signs = {
+      auto_attach = true;
+    };
 
     # Keymaps configuration using NixVim's format
     onAttach = {
