@@ -6,7 +6,7 @@
     };
 
     # Keymaps configuration using NixVim's format
-    on_attach = ''
+    onAttach = ''
           	function(bufnr)
       			local gs = package.loaded.gitsigns
 
