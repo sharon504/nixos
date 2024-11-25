@@ -3,14 +3,7 @@
     enable = true;
 
     # Main configuration options
-    autoRestore.enable = false;
-    suppressDirs = [
-      "~/"
-      "~/Dev/"
-      "~/Downloads"
-      "~/Documents"
-      "~/Desktop/"
-    ];
+    auto_restore.enable = false;
   };
 
   # Keymaps for auto-session
