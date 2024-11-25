@@ -6,117 +6,49 @@
     };
 
     # Keymaps configuration using NixVim's format
-    onAttach = {
-      function = true;
-      # Navigation
-      mappings = [
-        {
-          mode = "n";
-          key = "]h";
-          action = "require('gitsigns').next_hunk";
-          lua = true;
-          options.desc = "Next Hunk";
-        }
-        {
-          mode = "n";
-          key = "[h";
-          action = "require('gitsigns').prev_hunk";
-          lua = true;
-          options.desc = "Prev Hunk";
-        }
-        # Actions
-        {
-          mode = "n";
-          key = "<leader>hs";
-          action = "require('gitsigns').stage_hunk";
-          lua = true;
-          options.desc = "Stage hunk";
-        }
-        {
-          mode = "n";
-          key = "<leader>hr";
-          action = "require('gitsigns').reset_hunk";
-          lua = true;
-          options.desc = "Reset hunk";
-        }
-        {
-          mode = "v";
-          key = "<leader>hs";
-          action = "function() require('gitsigns').stage_hunk({vim.fn.line('.'), vim.fn.line('v')}) end";
-          lua = true;
-          options.desc = "Stage hunk";
-        }
-        {
-          mode = "v";
-          key = "<leader>hr";
-          action = "function() require('gitsigns').reset_hunk({vim.fn.line('.'), vim.fn.line('v')}) end";
-          lua = true;
-          options.desc = "Reset hunk";
-        }
-        {
-          mode = "n";
-          key = "<leader>hS";
-          action = "require('gitsigns').stage_buffer";
-          lua = true;
-          options.desc = "Stage buffer";
-        }
-        {
-          mode = "n";
-          key = "<leader>hR";
-          action = "require('gitsigns').reset_buffer";
-          lua = true;
-          options.desc = "Reset buffer";
-        }
-        {
-          mode = "n";
-          key = "<leader>hu";
-          action = "require('gitsigns').undo_stage_hunk";
-          lua = true;
-          options.desc = "Undo stage hunk";
-        }
-        {
-          mode = "n";
-          key = "<leader>hp";
-          action = "require('gitsigns').preview_hunk";
-          lua = true;
-          options.desc = "Preview hunk";
-        }
-        {
-          mode = "n";
-          key = "<leader>hb";
-          action = "function() require('gitsigns').blame_line({ full = true }) end";
-          lua = true;
-          options.desc = "Blame line";
-        }
-        {
-          mode = "n";
-          key = "<leader>hB";
-          action = "require('gitsigns').toggle_current_line_blame";
-          lua = true;
-          options.desc = "Toggle line blame";
-        }
-        {
-          mode = "n";
-          key = "<leader>hd";
-          action = "require('gitsigns').diffthis";
-          lua = true;
-          options.desc = "Diff this";
-        }
-        {
-          mode = "n";
-          key = "<leader>hD";
-          action = "function() require('gitsigns').diffthis('~') end";
-          lua = true;
-          options.desc = "Diff this ~";
-        }
-        # Text object
-        {
-          mode = [ "o" "x" ];
-          key = "ih";
-          action = ":<C-U>Gitsigns select_hunk<CR>";
-          options.desc = "Gitsigns select hunk";
-        }
-      ];
-    };
+    onAttach = ''
+          		on_attach = function(bufnr)
+      			local gs = package.loaded.gitsigns
+
+      			local function map(mode, l, r, desc)
+      				vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+      			end
+
+      			-- Navigation
+      			map("n", "]h", gs.next_hunk, "Next Hunk")
+      			map("n", "[h", gs.prev_hunk, "Prev Hunk")
+
+      			-- Actions
+      			map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
+      			map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
+      			map("v", "<leader>hs", function()
+      				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      			end, "Stage hunk")
+      			map("v", "<leader>hr", function()
+      				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      			end, "Reset hunk")
+
+      			map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
+      			map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
+
+      			map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
+
+      			map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
+
+      			map("n", "<leader>hb", function()
+      				gs.blame_line({ full = true })
+      			end, "Blame line")
+      			map("n", "<leader>hB", gs.toggle_current_line_blame, "Toggle line blame")
+
+      			map("n", "<leader>hd", gs.diffthis, "Diff this")
+      			map("n", "<leader>hD", function()
+      				gs.diffthis("~")
+      			end, "Diff this ~")
+
+      			-- Text object
+      			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
+      		end,
+
+    '';
   };
 }
