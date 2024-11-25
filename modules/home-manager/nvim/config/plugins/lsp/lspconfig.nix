@@ -3,11 +3,6 @@
     lsp = {
       enable = true;
 
-      # Load on events
-      loadOnEvent = [
-        "BufReadPre"
-        "BufNewFile"
-      ];
 
       # Enable LSP servers
       servers = {
