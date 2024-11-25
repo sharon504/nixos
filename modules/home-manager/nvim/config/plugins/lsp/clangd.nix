@@ -4,7 +4,6 @@
 
     # Use inlayHints for inlay hints configuration
     inlayHints = {
-      enable = true;
       inline = false;
     };
 
