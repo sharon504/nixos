@@ -71,7 +71,6 @@
     ];
 
     # Disable folding on alpha buffer
-    autostart = true;
     extraOptions = {
       nofoldenable = true;
     };
