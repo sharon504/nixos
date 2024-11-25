@@ -1,9 +1,11 @@
 {
   plugins.which-key = {
     enable = true;
-  };
 
-  # Global options that were in init
-  globals.timeout = true;
-  options.timeoutlen = 500;
+    # Equivalent to the init function setting timeout options
+    settings = {
+      timeout = true;
+      timeoutlen = 500;
+    };
+  };
 }
