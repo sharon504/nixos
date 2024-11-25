@@ -1,12 +1,7 @@
 {
   plugins.gitsigns = {
     enable = true;
-
-    # Event-based loading (Note: NixVim might handle this differently)
-    loadOnEvent = [
-      "BufReadPre"
-      "BufNewFile"
-    ];
+    auto_attach = true;
 
     # Keymaps configuration using NixVim's format
     onAttach = {
