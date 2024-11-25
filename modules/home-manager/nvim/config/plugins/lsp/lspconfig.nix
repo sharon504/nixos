@@ -6,11 +6,6 @@
 
       # Enable LSP servers
       servers = {
-        # Default configuration for most servers
-        default = {
-          enable = true;
-        };
-
         # GraphQL LSP configuration
         graphql = {
           enable = true;
