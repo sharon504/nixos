@@ -3,7 +3,9 @@
     enable = true;
 
     # Main configuration options
-    auto_restore = false;
+    settingsOptions = {
+      auto_restore = false;
+    };
   };
 
   # Keymaps for auto-session
