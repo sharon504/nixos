@@ -69,10 +69,5 @@
         val = 2;
       }
     ];
-
-    # Disable folding on alpha buffer
-    extraOptions = {
-      nofoldenable = true;
-    };
   };
 }
