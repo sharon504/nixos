@@ -3,7 +3,7 @@
     enable = true;
 
     # Main configuration options
-    auto_restore.enable = false;
+    auto_restore = false;
   };
 
   # Keymaps for auto-session
