@@ -1,70 +1,61 @@
 {
-  plugins = {
-    treesitter = {
-      enable = true;
+  programs.nixvim = {
+    plugins = {
+      treesitter = {
+        enable = true;
 
-      # Event-based loading (Note: NixVim might handle this differently)
-      loadOnEvent = [
-        "BufReadPre"
-        "BufNewFile"
-      ];
+        # Syntax highlighting
+        highlight.enable = true;
 
-      # Enable autotagging plugin
-      moduleConfig = {
-        autotag = {
+        # Indentation
+        indent.enable = true;
+
+        # Incremental selection with corrected keymaps
+        incrementalSelection = {
           enable = true;
+          keymaps = {
+            initSelection = {
+              action = "<C-space>";
+            };
+            nodeIncremental = {
+              action = "<C-space>";
+            };
+            scopeIncremental = {
+              action = false;
+            };
+            nodeDecremental = {
+              action = "<bs>";
+            };
+          };
         };
+
+        # Ensure these language parsers are installed
+        ensureInstalled = [
+          "json"
+          "javascript"
+          "typescript"
+          "tsx"
+          "yaml"
+          "html"
+          "css"
+          "prisma"
+          "markdown"
+          "markdown_inline"
+          "svelte"
+          "graphql"
+          "bash"
+          "lua"
+          "vim"
+          "dockerfile"
+          "gitignore"
+          "query"
+          "vimdoc"
+          "c"
+        ];
       };
 
-      # Enable syntax highlighting
-      highlight = {
-        enable = true;
-      };
-
-      # Enable indentation
-      indent = {
-        enable = true;
-      };
-
-      # Configure incremental selection
-      incrementalSelection = {
-        enable = true;
-        keymaps = {
-          initSelection = "<C-space>";
-          nodeIncremental = "<C-space>";
-          scopeIncremental = false;
-          nodeDecremental = "<bs>";
-        };
-      };
-
-      # Ensure these language parsers are installed
-      ensureInstalled = [
-        "json"
-        "javascript"
-        "typescript"
-        "tsx"
-        "yaml"
-        "html"
-        "css"
-        "prisma"
-        "markdown"
-        "markdown_inline"
-        "svelte"
-        "graphql"
-        "bash"
-        "lua"
-        "vim"
-        "dockerfile"
-        "gitignore"
-        "query"
-        "vimdoc"
-        "c"
-      ];
-    };
-
-    # Enable nvim-ts-autotag plugin
-    ts-autotag = {
-      enable = true;
+      # Enable nvim-ts-autotag plugin
+      ts-autotag.enable = true;
     };
   };
 }
