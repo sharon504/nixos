@@ -1,11 +1,11 @@
 {
   plugins.gitsigns = {
     enable = true;
-    signs = {
-      auto_attach = true;
-    };
-    lua = {
-      onAttach = ''
+    settings = {
+      signs = {
+        auto_attach = true;
+      };
+      on_attach = ''
         function(bufnr)
           local gs = require("gitsigns")
           
