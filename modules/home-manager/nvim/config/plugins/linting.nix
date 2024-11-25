@@ -3,7 +3,6 @@
     enable = true;
 
     # Events for lazy loading
-    event = [ "BufReadPre" "BufNewFile" ];
 
     # Linter configuration
     linters_by_ft = {
