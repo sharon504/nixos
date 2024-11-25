@@ -1,5 +1,5 @@
 {
-  plugins.clangd_extensions = {
+  plugins.clangd-extensions = {
     enable = true;
 
     # Main configuration settings
