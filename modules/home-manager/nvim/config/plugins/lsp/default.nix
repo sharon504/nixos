@@ -1,5 +1,5 @@
 {
-  impots = [
+  imports = [
     ./mason.nix
     ./clangd.nix
     ./gitsigns.nix
