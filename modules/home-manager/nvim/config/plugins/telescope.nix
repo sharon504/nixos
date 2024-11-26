@@ -1,7 +1,7 @@
 {
   plugins = {
     # Telescope plugin configuration
-    fzf.enable = true;
+    fzf-lua.enable = true;
     todo-comments.enable = true;
     fzf-native.enable = true;
     web-devicons.enable = true;
