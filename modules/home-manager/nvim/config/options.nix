@@ -33,14 +33,5 @@
 
     # Disable swapfile
     swapfile = "false";
-
-    # Highlight on yank
-    highlight = {
-      # Create an autocommand for highlighting yanked text
-      onYank = {
-        enable = "true";
-        timeout = 200;
-      };
-    };
   };
 }
