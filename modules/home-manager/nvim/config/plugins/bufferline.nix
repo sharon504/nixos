@@ -10,6 +10,5 @@
     };
 
     # Enable required dependency
-    web-devicons.enable = true;
   };
 }
