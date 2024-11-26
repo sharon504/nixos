@@ -7,11 +7,12 @@
     # ./bufferline.nix
     ./colorscheme.nix
     ./comments.nix
+    ./lazy.nix
     ./dressing.nix
     ./formatting.nix
     ./lazygit.nix
     ./linting.nix
-    ./lualine.nix
+    # ./lualine.nix
     ./noice.nix
     ./nvim-cmp.nix
     ./nvim-tree.nix
