@@ -4,8 +4,6 @@
     nvim-cmp = {
       enable = true;
 
-      event = [ "InsertEnter" ];
-
       # Dependencies
       extraPlugins = with pkgs.vimPlugins; [
         cmp-buffer
