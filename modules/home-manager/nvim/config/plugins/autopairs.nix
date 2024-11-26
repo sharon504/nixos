@@ -5,13 +5,15 @@
       enable = true;
 
       # Configure main options
-      checkTs = true; # enable treesitter
 
       # TreeSitter configuration
-      tsConfig = {
-        lua = [ "string" ]; # don't add pairs in lua string treesitter nodes
-        javascript = [ "template_string" ]; # don't add pairs in javascript template_string treesitter nodes
-        java = false; # don't check treesitter on java
+      settings = {
+        check_ts = true; # enable treesitter
+        ts_config = {
+          lua = [ "string" ]; # don't add pairs in lua string treesitter nodes
+          javascript = [ "template_string" ]; # don't add pairs in javascript template_string treesitter nodes
+          java = false; # don't check treesitter on java
+        };
       };
     };
 

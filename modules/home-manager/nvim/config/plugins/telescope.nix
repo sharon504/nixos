@@ -13,30 +13,32 @@
     };
 
     # Basic telescope configuration
-    defaults = {
-      pathDisplay = [ "smart" ];
-      mappings = {
-        i = {
-          "<C-k>" = "move_selection_previous";
-          "<C-j>" = "move_selection_next";
-          "<C-q>" = {
-            action = ''
-              function()
-                local actions = require("telescope.actions")
-                local trouble = require("trouble")
-                actions.send_selected_to_qflist()
-                trouble.toggle("quickfix")
-              end
-            '';
-            lua = true;
-          };
-          "<C-t>" = {
-            action = ''
-              function()
-                require("trouble.sources.telescope").open()
-              end
-            '';
-            lua = true;
+    settings = {
+      defaults = {
+        pathDisplay = [ "smart" ];
+        mappings = {
+          i = {
+            "<C-k>" = "move_selection_previous";
+            "<C-j>" = "move_selection_next";
+            "<C-q>" = {
+              action = ''
+                function()
+                  local actions = require("telescope.actions")
+                  local trouble = require("trouble")
+                  actions.send_selected_to_qflist()
+                  trouble.toggle("quickfix")
+                end
+              '';
+              lua = true;
+            };
+            "<C-t>" = {
+              action = ''
+                function()
+                  require("trouble.sources.telescope").open()
+                end
+              '';
+              lua = true;
+            };
           };
         };
       };

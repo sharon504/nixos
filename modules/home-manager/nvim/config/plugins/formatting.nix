@@ -3,7 +3,7 @@
     enable = true;
 
     # Formatter configurations by file type
-    formattersByFt = {
+    formatters_by_ft = {
       javascript = [ "prettier" ];
       typescript = [ "prettier" ];
       javascriptreact = [ "prettier" ];
