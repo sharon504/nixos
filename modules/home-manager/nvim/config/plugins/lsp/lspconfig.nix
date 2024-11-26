@@ -6,12 +6,6 @@
 
       # Enable LSP servers
       servers = {
-        # GraphQL LSP configuration
-        graphql = {
-          enable = true;
-          filetypes = [ "graphql" "gql" "svelte" "typescriptreact" "javascriptreact" ];
-        };
-
         # Emmet LSP configuration
         emmet_ls = {
           enable = true;
