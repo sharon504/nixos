@@ -191,7 +191,6 @@
       enable = true;
       autoConfig = true;
     };
-    neodev.enable = true;
   };
 
   # Configure diagnostic signs
