@@ -16,17 +16,6 @@
         };
       };
     };
-
-    # Enable nvim-cmp for integration
-    cmp = {
-      settings = {
-        enable = true;
-        # Add the autopairs mapping
-        mapping = {
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-        };
-      };
-    };
   };
 
   # Extra options
