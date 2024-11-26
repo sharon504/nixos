@@ -20,7 +20,6 @@
     ./todo-comments.nix
     ./treesitter.nix
     ./trouble.nix
-    ./vim-maximizer.nix
     ./vim-tmux-navigator.nix
     ./which-key.nix
   ];
