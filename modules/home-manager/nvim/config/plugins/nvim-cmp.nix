@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   plugins = {
     cmp-buffer.enable = true;
@@ -37,7 +37,7 @@
         };
 
         formatting = {
-          format = ''
+          format = lib.mkForce ''
             require('lspkind').cmp_format({
               maxwidth = 50,
               ellipsis_char = "..."
