@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.lint = {
+  plugins.lint = {
     enable = true;
 
     # Equivalent to event = { "BufReadPre", "BufNewFile" }
