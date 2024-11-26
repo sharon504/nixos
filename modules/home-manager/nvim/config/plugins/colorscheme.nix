@@ -1,8 +1,7 @@
 {
   # Enable and configure colorscheme
-  colorscheme = "tokyonight-night";
 
-  plugins.tokyonight = {
+  colorscheme.tokyonight = {
     enable = true;
     style = "night"; # The theme comes in three styles, `storm`, `moon`, and `night`
     lightStyle = "day"; # The theme is used when the background is set to light
