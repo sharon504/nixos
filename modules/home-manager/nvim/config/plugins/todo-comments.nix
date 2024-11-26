@@ -2,7 +2,6 @@
   plugins = {
     todo-comments = {
       enable = true;
-      event = [ "BufReadPre" "BufNewFile" ];
     };
   };
 
