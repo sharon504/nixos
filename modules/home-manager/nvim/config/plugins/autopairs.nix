@@ -21,12 +21,6 @@
     cmp = {
       settings = {
         enable = true;
-
-        # Configure autopairs integration
-        experimental = {
-          ghost_text = false;
-        };
-
         # Add the autopairs mapping
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
