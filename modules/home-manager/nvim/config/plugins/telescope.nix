@@ -4,8 +4,6 @@
     fzf-lua.enable = true;
     telescope = {
       enable = true;
-      enabledExtensions = [ "fzf-lua" ];
-      # Basic telescope configuration
       settings = {
         defaults = {
           pathDisplay = [ "smart" ];
