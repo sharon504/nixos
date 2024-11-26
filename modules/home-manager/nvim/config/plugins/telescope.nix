@@ -37,49 +37,49 @@
         };
       };
     };
-
-    # Keymaps configuration
-    keymaps = [
-      {
-        mode = "n";
-        key = "<leader>ff";
-        action = "<cmd>Telescope find_files<cr>";
-        options = {
-          desc = "Fuzzy find files in cwd";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>fr";
-        action = "<cmd>Telescope oldfiles<cr>";
-        options = {
-          desc = "Fuzzy find recent files";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>fs";
-        action = "<cmd>Telescope live_grep<cr>";
-        options = {
-          desc = "Find string in cwd";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>fc";
-        action = "<cmd>Telescope grep_string<cr>";
-        options = {
-          desc = "Find string under cursor in cwd";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>ft";
-        action = "<cmd>TodoTelescope<cr>";
-        options = {
-          desc = "Find todos";
-        };
-      }
-    ];
   };
+
+  # Keymaps configuration
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>ff";
+      action = "<cmd>Telescope find_files<cr>";
+      options = {
+        desc = "Fuzzy find files in cwd";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fr";
+      action = "<cmd>Telescope oldfiles<cr>";
+      options = {
+        desc = "Fuzzy find recent files";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fs";
+      action = "<cmd>Telescope live_grep<cr>";
+      options = {
+        desc = "Find string in cwd";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fc";
+      action = "<cmd>Telescope grep_string<cr>";
+      options = {
+        desc = "Find string under cursor in cwd";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ft";
+      action = "<cmd>TodoTelescope<cr>";
+      options = {
+        desc = "Find todos";
+      };
+    }
+  ];
 }
