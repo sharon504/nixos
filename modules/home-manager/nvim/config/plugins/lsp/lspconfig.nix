@@ -13,7 +13,7 @@
         };
 
         # Emmet LSP configuration
-        emmet = {
+        emmet_ls = {
           enable = true;
           filetypes = [
             "html"
