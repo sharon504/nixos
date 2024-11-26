@@ -32,15 +32,21 @@
       # Actions configuration
       actions = {
         openFile = {
-          windowPicker = {
-            enable = false;
-          };
+          quitOnOpen = false;
+          resizeWindow = true;
+        };
+        windowPicker = {
+          enable = true;
         };
       };
 
       # Filters configuration
       filters = {
         custom = [ ".DS_Store" ];
+      };
+
+      diagnostics = {
+        enable = true;
       };
 
       # Git configuration
