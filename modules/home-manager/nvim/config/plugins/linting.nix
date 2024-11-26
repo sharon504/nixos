@@ -7,7 +7,7 @@
       event = [ "BufReadPre" "BufNewFile" ];
     };
 
-    lintersByFiletype = {
+    lintersByFt = {
       javascript = [ "eslint_d" ];
       typescript = [ "eslint_d" ];
       javascriptreact = [ "eslint_d" ];
