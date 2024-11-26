@@ -3,16 +3,10 @@
   plugins = {
     nvim-cmp = {
       enable = true;
-
-      # Dependencies
-      extraPlugins = with pkgs.vimPlugins; [
-        cmp-buffer
-        cmp-path
-        luasnip
-        cmp_luasnip
-        friendly-snippets
-        lspkind-nvim
-      ];
+      cmp-buffer.enable = true;
+      cmp-path.enable = true;
+      cmp_luasnip.enable = true;
+      cmp-nvim-lsp.enable = true;
 
       snippet.expand = ''
         function(args)
