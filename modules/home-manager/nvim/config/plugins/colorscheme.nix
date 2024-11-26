@@ -1,3 +1,3 @@
 {
-  colorscheme = "tokyonight";
+  colorscheme = "tokyo-night";
 }
