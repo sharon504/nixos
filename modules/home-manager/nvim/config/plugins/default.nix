@@ -15,7 +15,6 @@
     ./noice.nix
     ./nvim-cmp.nix
     ./nvim-tree.nix
-    ./supermaven.nix
     ./surround.nix
     ./telescope.nix
     ./todo-comments.nix
