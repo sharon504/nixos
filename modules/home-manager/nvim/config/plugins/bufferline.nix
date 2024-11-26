@@ -10,6 +10,6 @@
     };
 
     # Enable required dependency
-    nvim-web-devicons.enable = true;
+    web-devicons.enable = true;
   };
 }
