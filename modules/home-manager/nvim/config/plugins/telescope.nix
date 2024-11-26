@@ -4,7 +4,7 @@
     enable = true;
 
     # Use attribute sets for extensions
-    extensions = {
+    enabledExtensions = {
       plenary.enable = true;
       fzf.enable = true;
       todo-comments.enable = true;
