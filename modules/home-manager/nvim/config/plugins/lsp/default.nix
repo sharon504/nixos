@@ -1,6 +1,6 @@
 {
   imports = [
-    ./clangd.nix
+    # ./clangd.nix
     ./gitsigns.nix
     ./lspconfig.nix
   ];
