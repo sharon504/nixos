@@ -18,25 +18,27 @@
     };
 
     # Enable nvim-cmp for integration
-    nvim-cmp = {
-      enable = true;
+    cmp = {
+      settings = {
+        enable = true;
 
-      # Configure autopairs integration
-      experimental = {
-        ghost_text = false;
-      };
+        # Configure autopairs integration
+        experimental = {
+          ghost_text = false;
+        };
 
-      # Add the autopairs mapping
-      mapping = {
-        "<CR>" = "cmp.mapping.confirm({ select = true })";
+        # Add the autopairs mapping
+        mapping = {
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+        };
       };
     };
-  };
 
-  # Extra options
-  extraConfigLua = ''
-    local cmp = require('cmp')
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-  '';
+    # Extra options
+    extraConfigLua = ''
+      local cmp = require('cmp')
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+    '';
+  };
 }
