@@ -38,7 +38,6 @@
       kitty
       brightnessctl
       blueman
-      bluetoothctl
     ];
   };
 
