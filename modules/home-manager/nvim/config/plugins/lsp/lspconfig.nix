@@ -186,11 +186,10 @@
     };
 
     # Enable dependencies
-    cmp-nvim-lsp.enable = true;
-    nvim-lsp-file-operations = {
-      enable = true;
-      autoConfig = true;
-    };
+    # nvim-lsp-file-operations = {
+    #   enable = true;
+    #   autoConfig = true;
+    # };
   };
 
   # Configure diagnostic signs

@@ -5,6 +5,8 @@
     cmp-path.enable = true;
     cmp_luasnip.enable = true;
     cmp-nvim-lsp.enable = true;
+    friendly-snippets.enable = true;
+    lspkind.enable = true;
     nvim-cmp = {
       enable = true;
 
