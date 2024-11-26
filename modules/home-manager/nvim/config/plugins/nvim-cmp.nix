@@ -10,12 +10,6 @@
     nvim-cmp = {
       enable = true;
 
-      snippet.expand = ''
-        function(args)
-          require('luasnip').lsp_expand(args.body)
-        end
-      '';
-
       completion = {
         completeopt = "menu,menuone,preview,noselect";
       };
@@ -30,12 +24,12 @@
         "<CR>" = "cmp.mapping.confirm({ select = false })";
       };
 
-      sources = [
-        { name = "nvim_lsp"; }
-        { name = "luasnip"; }
-        { name = "buffer"; }
-        { name = "path"; }
-      ];
+      # sources = [
+      #   { name = "nvim_lsp"; }
+      #   { name = "luasnip"; }
+      #   { name = "buffer"; }
+      #   { name = "path"; }
+      # ];
 
       experimental = {
         ghost_text = true;

@@ -20,12 +20,6 @@
       python = [ "isort" "black" ];
     };
 
-    # Format on save settings
-    formatOnSave = {
-      lspFallback = true;
-      async = false;
-      timeoutMs = 1000;
-    };
   };
 
   # Keymaps for manual formatting
