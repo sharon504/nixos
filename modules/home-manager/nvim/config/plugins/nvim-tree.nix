@@ -4,8 +4,6 @@
     nvim-tree = {
       enable = true;
 
-      # Add dependency
-      extraPlugins = [ pkgs.vimPlugins.nvim-web-devicons ];
 
       # Disable netrw
       disableNetrw = true;
