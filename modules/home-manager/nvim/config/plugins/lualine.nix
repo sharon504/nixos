@@ -122,5 +122,5 @@
   };
 
   # Optional: Ensure nvim-web-devicons is installed
-  plugins.nvim-web-devicons.enable = true;
+  plugins.web-devicons.enable = true;
 }
