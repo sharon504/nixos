@@ -1,15 +1,6 @@
 {
   plugins.tmux-navigator = {
     enable = true;
-
-    # Commands for lazy loading (Note: NixVim might handle this automatically)
-    commands = [
-      "TmuxNavigateLeft"
-      "TmuxNavigateDown"
-      "TmuxNavigateUp"
-      "TmuxNavigateRight"
-      "TmuxNavigatePrevious"
-    ];
   };
 
   # Configure keymaps for navigation
