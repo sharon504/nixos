@@ -1,12 +1,12 @@
 { pkgs, ... }:
 {
   plugins = {
+    cmp-buffer.enable = true;
+    cmp-path.enable = true;
+    cmp_luasnip.enable = true;
+    cmp-nvim-lsp.enable = true;
     nvim-cmp = {
       enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      cmp_luasnip.enable = true;
-      cmp-nvim-lsp.enable = true;
 
       snippet.expand = ''
         function(args)
