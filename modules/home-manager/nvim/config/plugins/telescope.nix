@@ -2,12 +2,9 @@
   plugins = {
     # Telescope plugin configuration
     fzf-lua.enable = true;
-    todo-comments.enable = true;
-    fzf-native.enable = true;
-    web-devicons.enable = true;
     telescope = {
       enable = true;
-
+      enabledExtensions = [ "fzf-lua" ];
       # Basic telescope configuration
       settings = {
         defaults = {
