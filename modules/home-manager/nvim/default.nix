@@ -6,6 +6,6 @@
     withNodeJs = true;
     viAlias = true;
     withPython3 = true;
-    extraLuaConfig = lib.fileContents ~/.config/nvim/init.lua;
+    extraLuaConfig = lib.fileContents ./nvim/init.lua;
   };
 }
