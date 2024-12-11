@@ -7,6 +7,7 @@
   imports = [
     ./hyprland
     ./nvim
+    ./waybar
   ];
 
   home.packages = [ ];
