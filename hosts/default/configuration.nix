@@ -49,6 +49,7 @@
     gnumake
     cmake
     vimPlugins.telescope-fzf-native-nvim
+    unzip
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
