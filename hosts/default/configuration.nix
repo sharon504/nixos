@@ -38,8 +38,6 @@
       kitty
       brightnessctl
       blueman
-      gnumake
-      cmake
     ];
   };
 
@@ -48,6 +46,9 @@
     wget
     kitty
     git
+    gnumake
+    cmake
+    vimPlugins.telescope-fzf-native-nvim
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
