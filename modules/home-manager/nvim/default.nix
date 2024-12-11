@@ -1,9 +1,11 @@
 { pkgs, config, lib, ... }:
 {
-  programs.nixvim = {
+  home.file."~/.config/nvim".source = ./nvim;
+  programs.neovim = {
     enable = true;
-    imports = [
-      ./config
-    ];
+    withNodeJs = true;
+    viAlias = true;
+    withPython3 = true;
+    extraLuaConfig = lib.fileContents ~/.config/nvim/init.lua;
   };
 }
