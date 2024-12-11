@@ -1,5 +1,5 @@
 {
-  home.file.".config/waybar/" = { source = ./waybar/mocha.css; recursive = true; };
+  home.file.".config/waybar/mocha.css" = { source = ./waybar/mocha.css; };
   programs.waybar = {
     enable = true;
     style = builtins.readFile ./waybar/style.css;
