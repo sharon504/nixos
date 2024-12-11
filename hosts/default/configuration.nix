@@ -20,7 +20,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "alpha" = import ./home.nix;
+      "alpha" = import ../../modules/home-manager;
     };
   };
 

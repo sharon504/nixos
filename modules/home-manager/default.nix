@@ -5,18 +5,18 @@
   home.homeDirectory = "/home/alpha";
   home.stateVersion = "24.05"; # Please read the comment before changing.
   imports = [
-    ../../modules/home-manager/hyprland
-    ../../modules/home-manager/nvim
+    ./hyprland
+    ./nvim
   ];
 
-  home.packages = [
-  ];
+  home.packages = [ ];
 
   home.file = { };
 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+  programs.lazygit.enable = true;
 
   programs.home-manager.enable = true;
 }
