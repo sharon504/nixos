@@ -1,5 +1,5 @@
 {
-  home.files.".config/waybar/mocha.css".source = ./waybar/mocha.css;
+  home.files.".config/waybar/" = { source = ./waybar/mocha.css; recursive = true; };
   programs.waybar = {
     enable = true;
     style = builtins.readFile ./waybar/style.css;
@@ -10,7 +10,7 @@
       "modules-center" = [ "custom/music" ];
       "modules-right" = [ "pulseaudio" "backlight" "battery" "clock" "tray" "custom/lock" "custom/power" ];
       "wlr/workspaces" = {
-        "disable-scroll" = true;
+        "disable-scrolllazygit" = true;
         "sort-by-name" = true;
         "format" = " {icon} ";
         "format-icons" = {
