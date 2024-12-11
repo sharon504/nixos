@@ -1,6 +1,11 @@
 { pkgs, config, lib, ... }:
 {
-  home.file."~/.config/nvim".source = ./nvim;
+  home.file = {
+    ".config/nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
+  };
   programs.neovim = {
     enable = true;
     withNodeJs = true;
