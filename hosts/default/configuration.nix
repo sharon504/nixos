@@ -38,6 +38,8 @@
       kitty
       brightnessctl
       blueman
+      gnumake
+      cmake
     ];
   };
 
