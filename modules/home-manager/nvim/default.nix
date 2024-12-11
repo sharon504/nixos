@@ -12,5 +12,10 @@
     viAlias = true;
     withPython3 = true;
     extraLuaConfig = lib.fileContents ./nvim/init.lua;
+    extraPackages = with pkgs; [
+      gcc
+      cmake
+      gnumake
+    ];
   };
 }
