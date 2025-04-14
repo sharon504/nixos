@@ -6,9 +6,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = builtins.readFile ./aliasrc;
-
-    initExtra = builtins.readfile ./zshrc;
+    initExtra = builtins.readFile ./zshrc;
   };
 
   home.sessionVariables = {
