@@ -9,7 +9,6 @@
     ./nvim
     ./waybar
     ./dunst
-    ./kanata
     ./kitty
     ./rofi
     ./zsh

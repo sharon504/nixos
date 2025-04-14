@@ -22,6 +22,7 @@
         };
         modules = [
           ./hosts/default/configuration.nix
+          ./modules/kanata
           inputs.home-manager.nixosModules.default
         ];
       };
