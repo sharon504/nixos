@@ -12,7 +12,6 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "vim";
     WAL_SKIP = "kitty";
     HISTSIZE = "10000";
     SAVEHIST = "10000";
