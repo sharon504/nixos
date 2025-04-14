@@ -8,6 +8,12 @@
     ./hyprland
     ./nvim
     ./waybar
+    ./dunst
+    ./kanata
+    ./kitty
+    ./rofi
+    ./zsh
+    ./waybar
   ];
 
   home.packages = [ ];
