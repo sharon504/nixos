@@ -33,7 +33,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      firefox
+      zen-browser
       tree
       kitty
       brightnessctl
