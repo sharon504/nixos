@@ -1,5 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
-
+{ config, lib, pkgs, inputs, system, ... }:
 {
   imports =
     [
@@ -17,6 +16,14 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  hardware.graphics = {
+    enable = true;
+  };
+
+  networking.networkmanager = {
+    enable = true;
+  };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -33,7 +40,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      zen-browser
       tree
       kitty
       brightnessctl
@@ -51,6 +57,7 @@
     vimPlugins.telescope-fzf-native-nvim
     unzip
     nodejs
+    inputs.zen-browser.packages."${system}".default
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
