@@ -11,8 +11,8 @@
 
   security.polkit.enable = true;
 
-  programs.dconf.enable = true;
-  programs.xwayland.enable = true;
+  # programs.dconf.enable = true;
+  # programs.xwayland.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -39,6 +39,8 @@
   users.users.alpha = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
     packages = with pkgs; [
       tree
       kitty
