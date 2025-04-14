@@ -14,7 +14,5 @@
     enable = true;
     extraConfig = builtins.readFile ./hypr/hyprlock.conf;
   };
-
-  imports = [ ./hypridle.nix ];
 }
 
