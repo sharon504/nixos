@@ -38,7 +38,6 @@
       kitty
       brightnessctl
       blueman
-      nodejs
     ];
   };
 
@@ -51,6 +50,7 @@
     cmake
     vimPlugins.telescope-fzf-native-nvim
     unzip
+    nodejs
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
