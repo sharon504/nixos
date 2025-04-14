@@ -8,6 +8,6 @@
   };
   services.kanata = {
     enable = true;
-    extraConfig = builtins.readFile ./kanata/config.kbd
+    extraConfig = builtins.readFile ./kanata/config.kbd;
   };
 }
