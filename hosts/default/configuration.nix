@@ -12,7 +12,12 @@
   security.polkit.enable = true;
 
   # programs.dconf.enable = true;
-  # programs.xwayland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+    };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
