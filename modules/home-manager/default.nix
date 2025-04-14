@@ -13,9 +13,20 @@
     ./rofi
     ./zsh
     ./waybar
+    ./hypridle
   ];
 
-  home.packages = [ ];
+  home.packages = with pkgs; [ 
+    zoxide
+    fzf
+    direnv
+    rustup
+    pywal
+    swww
+    imagemagick
+    playerctl
+    brightnessctl
+  ];
 
   home.file = { };
 
