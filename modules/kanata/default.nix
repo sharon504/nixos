@@ -3,7 +3,10 @@
   services.kanata = {
     enable = true;
     keyboards = {
-      configFile = builtins.readFile ./kanata/config.kbd;
+      internalKeyboard = {
+        config = builtins.readFile ./kanata/config.kbd;
+        extraDefCfg = "process-unmapped-keys yes";
+      };
     };
   };
 }
