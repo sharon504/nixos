@@ -8,11 +8,16 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = builtins.readFile ./hypr/hyprland.conf;
+    xwayland = {
+      enable = true;
+    };
   };
 
   programs.hyprlock = {
     enable = true;
     extraConfig = builtins.readFile ./hypr/hyprlock.conf;
   };
+
+  services.hypridle.enable = true;
 }
 
