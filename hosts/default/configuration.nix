@@ -65,6 +65,7 @@
     unzip
     nodejs
     inputs.zen-browser.packages."${system}".default
+    python3
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
