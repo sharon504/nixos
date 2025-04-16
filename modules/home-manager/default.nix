@@ -34,6 +34,13 @@
     EDITOR = "nvim";
   };
   programs.lazygit.enable = true;
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      user.name = "sharon504";
+      user.email = "sharonpshajan@gmail.com";
+    };
+  };
 
   programs.home-manager.enable = true;
 }
