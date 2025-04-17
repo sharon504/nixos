@@ -28,6 +28,7 @@
     brightnessctl
     eza
     hypridle
+    yazi
   ];
 
 
