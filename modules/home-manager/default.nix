@@ -12,7 +12,7 @@
      ./kitty
      ./rofi
      ./zsh
-     ./waybar
+ #    ./waybar
      ./hypridle
   ];
 
