@@ -14,6 +14,7 @@
  * Import Pywal colors 
  * ----------------------------------------------------- */
 @import "../../.cache/wal/colors-waybar.css";
+@import "mocha.css";
 
 /* -----------------------------------------------------
  * General 
@@ -49,19 +50,22 @@ window#waybar {
 }
 
 #workspaces button {
-  color: @foreground;
+  color: @lavender;
   border-radius: 1rem;
+  background-color: @background;
   padding: 0.4rem;
 }
 
-/* #workspaces button.active { */
-/*   color: @color9; */
-/*   border-radius: 1rem; */
-/* } */
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
 
-/* #workspaces button:hover { */
-/*   color: @color10; */
-/* } */
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 100%;
+  padding: 5px;
+}
 
 /* -----------------------------------------------------
  * Window
