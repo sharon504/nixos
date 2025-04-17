@@ -21,7 +21,6 @@ while true; do
     unset "wallpapers[$wallpaperIndex]"
 
     # Delay for 2 hours before selecting the next wallpaper
-    wal -i $(cat ~/.cache/swww/eDP-1)
     sleep 2h
 done
 
