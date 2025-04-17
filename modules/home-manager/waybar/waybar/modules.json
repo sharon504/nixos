@@ -86,7 +86,7 @@
     "tooltip-format-wifi": " {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": " {ifname} ({ipaddr}/{cidr})",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "kitty nmtui",
+    "on-click": "kitty --class Floating nmtui",
     "max-length": 50
   },
 
