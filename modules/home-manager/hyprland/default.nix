@@ -10,7 +10,7 @@
     xwayland = {
       enable = true;
     };
-    extraConfig = """";
+    extraConfig = '''';
   };
 
   programs.hyprlock = {
