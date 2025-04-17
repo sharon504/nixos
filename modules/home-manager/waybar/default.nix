@@ -21,7 +21,7 @@
           "custom/power"
         ];
         "custom/filemanager" = {
-          "format"= "  ";
+          "format"= " ";
           "on-click"= "~/.config/hypr/scripts/wallpaper &";
           "tooltip"= false;
         };
