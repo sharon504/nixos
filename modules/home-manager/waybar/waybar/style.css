@@ -54,14 +54,14 @@ window#waybar {
   padding: 0.4rem;
 }
 
-#workspaces button.active {
-  color: @color9;
-  border-radius: 1rem;
-}
+/* #workspaces button.active { */
+/*   color: @color9; */
+/*   border-radius: 1rem; */
+/* } */
 
-#workspaces button:hover {
-  color: @color10;
-}
+/* #workspaces button:hover { */
+/*   color: @color10; */
+/* } */
 
 /* -----------------------------------------------------
  * Window
