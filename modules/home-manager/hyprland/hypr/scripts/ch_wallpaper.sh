@@ -22,7 +22,8 @@ while true; do
 
     # Delay for 2 hours before selecting the next wallpaper
     wal -i $(cat ~/.cache/swww/eDP-1)
-    bash ~/dotfiles/waybar/launch.sh
+    pkill waybar 
+    waybar &
     rm -rf ~/.cache/current_wallpaper.jpg
     cp  $(cat ~/.cache/swww/eDP-1) ~/.cache/current_wallpaper.jpg
     convert ~/.cache/current_wallpaper.jpg ~/.cache/current_wallpaper.png
