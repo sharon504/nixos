@@ -27,12 +27,34 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  hardware.graphics = {
-    enable = true;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+        };
+      };
+    };
+    graphics = {
+      enable = true;
+    };sudo 
   };
 
-  networking.networkmanager = {
-    enable = true;
+  networking = {
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
+    useDHCP = false;
+    dhcpcd.enable = false;
+
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
   };
 
   home-manager = {
@@ -49,7 +71,7 @@
 
   users.users.alpha = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
     packages = with pkgs; [
