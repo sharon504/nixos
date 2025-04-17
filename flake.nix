@@ -11,7 +11,7 @@
        inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +32,12 @@
           ./hosts/default/configuration.nix
           ./modules/kanata
           inputs.home-manager.nixosModules.default
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.backupFileExtension = "HMBackup";
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          }
         ];
       };
     };
