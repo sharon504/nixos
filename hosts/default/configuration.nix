@@ -8,7 +8,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  nixpkgs.config.allowUnfree = true;
   security.polkit.enable = true;
 
   # programs.dconf.enable = true;
@@ -54,6 +54,7 @@
       tree
       kitty
       brightnessctl
+      spotify
       blueman
     ];
   };
@@ -70,6 +71,8 @@
     nodejs
     inputs.zen-browser.packages."${system}".default
     python3
+    pulseaudioFull
+    pavucontrol
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
