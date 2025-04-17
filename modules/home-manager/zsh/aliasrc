@@ -21,6 +21,8 @@ ex ()
   fi
 }
 
+alias ns='sudo nixos-rebuild switch --flake ~/dotfiles/#default'
+
 nixssh() {
   if test $1 = "--ssh"; then
       ssh -i ~/.ssh/alpha_virtio alpha@192.168.122.238

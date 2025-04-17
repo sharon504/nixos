@@ -26,6 +26,9 @@
     imagemagick
     playerctl
     brightnessctl
+    eza
+    hyprpaper
+    hypridle
   ];
 
   home.file = { };
