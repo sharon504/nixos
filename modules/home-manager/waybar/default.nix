@@ -8,9 +8,10 @@
         layer = "top";
         position = "top";
 
-        modules-left = [ "wlr/workspaces" ];
+        modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "custom/music" ];
         modules-right = [
+          "custom/filemanager"
           "pulseaudio"
           "backlight"
           "battery"
@@ -19,23 +20,17 @@
           "custom/lock"
           "custom/power"
         ];
-
-        "wlr/workspaces" = {
+        "custom/filemanager" = {
+          "format"= " ";
+          "on-click"= "~/.config/hypr/scripts/ch_wallpaper.sh";
+          "tooltip"= false;
+        };
+        "hyprland/workspaces" = {
           disable-scroll = true;
           sort-by-name = true;
           format = " {icon} ";
           format-icons = {
-            "1" = "󰲡";
-            "2" = "󰲣";
-            "3" = "󰲥";
-            "4" = "󰲧";
-            "5" = "󰲩";
-            "6" = "󰲫";
-            "7" = "󰲭";
-            "8" = "󰲯";
-            "9" = "󰲱";
-            "10" = "󰲳";
-            default = "󰄱";
+           "default"= " ";
           };
         };
 
@@ -45,7 +40,7 @@
         };
 
         "custom/music" = {
-          format = "  {}";
+          format = "  {}";
           escape = true;
           interval = 5;
           tooltip = false;
@@ -55,15 +50,15 @@
         };
 
         clock = {
-          timezone = "Asia/Dubai";
+          timezone = "Asia/Kolkata";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = " 󰸗 {:%d/%m/%Y}";
-          format = " 󰥔 {:%H:%M}";
+          format = " 󰥔  {:%H:%M}";
         };
 
         backlight = {
           device = "intel_backlight";
-          format = "{icon}";
+          format = "{icon} ";
           format-icons = [
             "󱩎"
             "󱩏"
@@ -100,15 +95,15 @@
             "󰁹"
             "󰂃"
             "󰂄"
-            "󰂅"
+            "󰂅 "
           ];
         };
 
         pulseaudio = {
           format = "{icon} {volume}%";
-          format-muted = "󰝟";
+          format-muted = "󰝟 ";
           format-icons = {
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = [ "󰕿 " "󰖀 " "󰕾 " ];
           };
           on-click = "pavucontrol";
         };
@@ -116,13 +111,13 @@
         "custom/lock" = {
           tooltip = false;
           on-click = "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown";
-          format = "󰍁";
+          format = "󰍁 ";
         };
 
         "custom/power" = {
           tooltip = false;
           on-click = "wlogout &";
-          format = "󰐥";
+          format = "󰐥 ";
         };
       };
     };
