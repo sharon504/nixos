@@ -44,6 +44,7 @@ window#waybar {
   border-radius: 1rem;
   margin: 5px;
   background-color: @background;
+  padding: 0 1rem;
   margin-left: 1rem;
 }
 
@@ -60,7 +61,6 @@ window#waybar {
 
 #workspaces button:hover {
   color: @color10;
-  border-radius: 1rem;
 }
 
 /* -----------------------------------------------------
