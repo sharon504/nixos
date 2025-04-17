@@ -22,7 +22,7 @@
         ];
         "custom/filemanager" = {
           "format"= " ";
-          "on-click"= "~/.config/hypr/scripts/ch_wallpaper.sh";
+          "on-click"= "~/.config/hypr/scripts/wallpaper &";
           "tooltip"= false;
         };
         "hyprland/workspaces" = {

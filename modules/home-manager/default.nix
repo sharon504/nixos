@@ -14,6 +14,7 @@
     ./zsh
     ./waybar
     ./hypridle
+    ./hyprpaper
   ];
 
   home.packages = with pkgs; [ 
@@ -30,6 +31,7 @@
     hyprpaper
     hypridle
   ];
+
 
   home.file = { };
 
