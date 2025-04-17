@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+  home.file = {
+    ".config/zsh/aliasrc" = { 
+      source = ./aliasrc; 
+    };
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
