@@ -38,7 +38,7 @@
     };
     graphics = {
       enable = true;
-    };sudo 
+    };
   };
 
   networking = {
