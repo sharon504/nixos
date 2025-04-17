@@ -42,29 +42,31 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-  border-radius: 1rem;
   margin: 5px;
-  background-color: @background;
-  padding: 0 1rem;
   margin-left: 1rem;
+  background-color: @surface0;
+  border-radius: 1rem;
+  padding: 0.2rem; /* optional: helps spacing between circular buttons */
 }
 
 #workspaces button {
   color: @lavender;
-  border-radius: 1rem;
-  background-color: @background;
-  padding: 0.4rem;
+  border-radius: 50%; /* make it circular */
+  padding: 0.2rem;
+  min-width: 1.5rem; /* prevent collapse */
+  min-height: 1.5rem;
+  margin: 0.1rem; /* spacing between buttons */
 }
 
 #workspaces button.active {
   color: @sky;
-  border-radius: 1rem;
+  border-radius: 50%;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-  border-radius: 100%;
-  padding: 5px;
+  border-radius: 50%;
+  background-color: @overlay0; /* optional: hover bg */
 }
 
 /* -----------------------------------------------------
