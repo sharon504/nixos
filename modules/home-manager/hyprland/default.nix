@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 {
-  # home.file.".config/hypr/" = {
-  #   source = ./hypr;
-  #   recursive = true;
-  # };
+  home.file.".config/hypr/" = {
+    source = ./hypr;
+    recursive = true;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
