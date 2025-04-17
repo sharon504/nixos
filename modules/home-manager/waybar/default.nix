@@ -9,9 +9,6 @@
   programs.waybar = {
     enable = true;
 
-    # Load custom CSS style
-    style = builtins.readFile ./waybar/style.css;
-
     # Waybar supports multiple bar configs, so this must be a list
     settings = [
       {
