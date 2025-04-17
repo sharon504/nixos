@@ -1,65 +1,125 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  # Sync entire waybar config dir
-  home.file.".config/waybar" = {
-    source = ./waybar;
-  };
-
+  home.file.".config/waybar/mocha.css" = { source = ./waybar/mocha.css; };
   programs.waybar = {
     enable = true;
-
-    # Waybar supports multiple bar configs, so this must be a list
-    settings = [
-      {
+    style = builtins.readFile ./waybar/style.css;
+    settings = {
+      mainBar = {
         layer = "top";
-        "margin-top" = 4;
-        "margin-bottom" = 0;
-        height = 16;
-        "margin-left" = 0;
-        "margin-right" = 0;
-        spacing = 0;
+        position = "top";
 
-        # Load external modules
-        include = [ "${config.home.homeDirectory}/dotfiles/waybar/modules.json" ];
-
-        "modules-left" = [
-          "custom/appmenu"
-          "clock"
-          "hyprland/window"
-        ];
-
-        "modules-center" = [
-          "hyprland/workspaces"
-        ];
-
-        "modules-right" = [
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "custom/music" ];
+        modules-right = [
           "custom/filemanager"
-          "group/quicklinks"
-          "group/hardware"
           "pulseaudio"
-          "network"
-          "bluetooth"
+          "backlight"
           "battery"
+          "clock"
+          "tray"
+          "custom/lock"
+          "custom/power"
         ];
+        "custom/filemanager" = {
+          "format"= "  ";
+          "on-click"= "~/.config/hypr/scripts/wallpaper &";
+          "tooltip"= false;
+        };
+        "hyprland/workspaces" = {
+          disable-scroll = true;
+          sort-by-name = true;
+          format = " {icon} ";
+          format-icons = {
+           "default"= " ";
+          };
+        };
 
-        "group/quicklinks" = {
-          orientation = "horizontal";
-          modules = [
-            "custom/filemanager"
-            "custom/brave"
+        tray = {
+          icon-size = 21;
+          spacing = 10;
+        };
+
+        "custom/music" = {
+          format = "  {}";
+          escape = true;
+          interval = 5;
+          tooltip = false;
+          exec = "playerctl metadata --format='{{ title }}'";
+          on-click = "playerctl play-pause";
+          max-length = 50;
+        };
+
+        clock = {
+          timezone = "Asia/Kolkata";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = " 󰸗 {:%d/%m/%Y}";
+          format = " 󰥔  {:%H:%M}";
+        };
+
+        backlight = {
+          device = "intel_backlight";
+          format = "{icon} ";
+          format-icons = [
+            "󱩎"
+            "󱩏"
+            "󱩐"
+            "󱩑"
+            "󱩒"
+            "󱩓"
+            "󱩔"
+            "󱩕"
+            "󱩖"
+            "󰛨"
           ];
         };
 
-        "group/hardware" = {
-          orientation = "horizontal";
-          modules = [
-            "cpu"
-            "memory"
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰚥 {capacity}%";
+          format-alt = "{icon} {time}";
+          format-icons = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+            "󰂃"
+            "󰂄"
+            "󰂅 "
           ];
         };
-      }
-    ];
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = "󰝟 ";
+          format-icons = {
+            default = [ "󰕿 " "󰖀 " "󰕾 " ];
+          };
+          on-click = "pavucontrol";
+        };
+
+        "custom/lock" = {
+          tooltip = false;
+          on-click = "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown";
+          format = "󰍁 ";
+        };
+
+        "custom/power" = {
+          tooltip = false;
+          on-click = "wlogout &";
+          format = "󰐥 ";
+        };
+      };
+    };
   };
 }
-
