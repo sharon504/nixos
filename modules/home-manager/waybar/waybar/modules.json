@@ -11,17 +11,11 @@
 {
   // Workspaces
   "hyprland/workspaces": {
-    "on-click": "activate",
-    "active-only": false,
-    "all-outputs": true,
-    "format": "{icon} ",
+    "disable-scroll": true,
+    "sort-by-name": true,
+    "format": " {icon} ",
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
-    },
-    "persistent_workspaces": {
-      "*": 5
+      "default": ""
     }
   },
 

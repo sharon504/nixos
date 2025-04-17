@@ -41,41 +41,26 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-  background: @background;
-  margin: 1px 5px 5px 5px;
-  padding: 2px 1px;
-  border-radius: 12px;
-  font-weight: normal;
-  font-style: normal;
-  opacity: 0.8;
-  border: 1px solid @foreground;
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @background;
+  margin-left: 1rem;
 }
 
 #workspaces button {
-  padding: 0px 10px;
-  margin: 1px 5px;
-  border-radius: 12px;
   color: @foreground;
-  background-color: @color3;
-  transition: all 0.3s ease-in-out;
-  opacity: 0.4;
-  font-size: 13px;
+  border-radius: 1rem;
+  padding: 0.4rem;
 }
 
 #workspaces button.active {
-  background-color: @color9;
-  border-radius: 10px;
-  min-width: 30px;
-  background-size: 400% 400%;
-  transition: all 0.3s ease-in-out;
-  opacity: 1;
+  color: @color9;
+  border-radius: 1rem;
 }
 
 #workspaces button:hover {
-  background-color: @color10;
-  border-radius: 10px;
-  min-width: 30px;
-  background-size: 400% 400%;
+  color: @color10;
+  border-radius: 1rem;
 }
 
 /* -----------------------------------------------------

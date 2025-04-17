@@ -21,6 +21,8 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono
+    fira-sans
+    font-awesome
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -76,6 +78,7 @@
     pavucontrol
     pamixer
     blueman
+    font-awesome
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
