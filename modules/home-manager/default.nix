@@ -28,7 +28,6 @@
     playerctl
     brightnessctl
     eza
-    hyprpaper
     hypridle
   ];
 
