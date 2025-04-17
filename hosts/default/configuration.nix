@@ -80,6 +80,7 @@
       brightnessctl
       spotify
       blueman
+      neofetch
     ];
   };
 
