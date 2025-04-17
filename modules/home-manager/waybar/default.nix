@@ -34,6 +34,7 @@
         ];
 
         "modules-right" = [
+          "custom/filemanager"
           "group/quicklinks"
           "group/hardware"
           "pulseaudio"
