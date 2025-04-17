@@ -48,8 +48,8 @@
   users.users.alpha = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    # shell = pkgs.zsh;
-    # ignoreShellProgramCheck = true;
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
     packages = with pkgs; [
       tree
       kitty
