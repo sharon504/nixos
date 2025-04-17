@@ -29,6 +29,7 @@
     eza
     hypridle
     yazi
+    hyprshot
   ];
 
 
