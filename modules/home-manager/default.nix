@@ -14,7 +14,6 @@
     ./zsh
     ./waybar
     ./hypridle
-    ./hyprpaper
   ];
 
   home.packages = with pkgs; [ 
