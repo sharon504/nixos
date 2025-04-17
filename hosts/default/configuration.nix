@@ -3,7 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+      # inputs.home-manager.nixosModules.default
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -33,12 +33,12 @@
     enable = true;
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "alpha" = import ../../modules/home-manager;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     "alpha" = import ../../modules/home-manager;
+  #   };
+  # };
 
   time.timeZone = "Asia/Kolkata";
 
@@ -48,8 +48,8 @@
   users.users.alpha = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-    ignoreShellProgramCheck = true;
+    # shell = pkgs.zsh;
+    # ignoreShellProgramCheck = true;
     packages = with pkgs; [
       tree
       kitty
