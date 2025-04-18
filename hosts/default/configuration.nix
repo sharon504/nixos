@@ -18,7 +18,13 @@
       enable = true;
     };
   };
-
+  fileSystems = {
+     "/mnt/external" = {
+         device = "UUID=0E84-C869";  # Replace with the actual UUID
+         fsType = "exfat";
+         options = [ "defaults" ];
+     };
+  };
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono
     fira-sans
