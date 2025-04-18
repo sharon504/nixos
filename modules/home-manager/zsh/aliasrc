@@ -22,7 +22,7 @@ ex ()
 }
 
 alias nrs='sudo nixos-rebuild switch --flake ~/dotfiles/#default' #nixos-rebuild switch
-alias nrsu='sudo nix flake update --flake ~/dotfiiles/flake.nix;nrs --upgrade'
+alias nrsu='sudo nix flake update --flake /home/alpha/dotfiles/;nrs --upgrade'
 
 nixssh() {
   if test $1 = "--ssh"; then
