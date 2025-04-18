@@ -22,7 +22,7 @@ ex ()
 }
 
 alias nrs='sudo nixos-rebuild switch --flake ~/dotfiles/#default' #nixos-rebuild switch
-alias nrsu='sudo nix flake update --flake ~/dotfiiles/;nrs --upgrade'
+alias nrsu='sudo nix flake update --flake ~/dotfiiles/flake.nix;nrs --upgrade'
 
 nixssh() {
   if test $1 = "--ssh"; then
@@ -46,7 +46,7 @@ alias td='tmux detach'
 alias dev='direnv allow;npm run dev'
 alias da='direnv allow'
 
-DOTFILES_DIR="~/dotfiles/modules/home-manager"
+DOTFILES_DIR='~/dotfiles/modules/home-manager'
 
 alias zshrc='${=EDITOR} $DOTFILES_DIR/zsh' # Quick access to the ~/.zshrc file
 alias nvimrc='${=EDITOR} $DOTFILES_DIR/nvim/'
