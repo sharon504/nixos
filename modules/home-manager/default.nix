@@ -30,6 +30,7 @@
     hypridle
     yazi
     hyprshot
+    ripgrep
   ];
 
 
