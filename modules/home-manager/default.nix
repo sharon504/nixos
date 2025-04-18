@@ -31,6 +31,12 @@
     yazi
     hyprshot
     ripgrep
+    gnutar
+    bzip2
+    unrar
+    gzip
+    unzip
+    p7zip
   ];
 
 
