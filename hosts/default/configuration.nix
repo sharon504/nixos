@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, system, ... }:
+{ pkgs, inputs, system, ... }:
 {
   imports =
     [
@@ -10,7 +10,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   nixpkgs.config.allowUnfree = true;
   security.polkit.enable = true;
-
+  virtualisation.docker.enable = true;
   # programs.dconf.enable = true;
   programs.hyprland = {
     enable = true;
@@ -20,9 +20,9 @@
   };
   fileSystems = {
      "/mnt/external" = {
-         device = "UUID=0E84-C869";  # Replace with the actual UUID
+         device = "/dev/disk/by-uuiid/0E84-C869";  # Replace with the actual UUID
          fsType = "exfat";
-         options = [ "defaults" ];
+         options = [ "auto,nofail,noatime,rw,user" ];
      };
   };
   fonts.packages = with pkgs; [
@@ -109,6 +109,7 @@
     blueman
     font-awesome
     wl-clipboard
+    docker-compose
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
