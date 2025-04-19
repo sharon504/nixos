@@ -5,15 +5,16 @@
   home.homeDirectory = "/home/alpha";
   home.stateVersion = "24.05"; # Please read the comment before changing.
   imports = [
-     ./hyprland
-     ./nvim
-     ./waybar
-     ./dunst
-     ./kitty
-     ./rofi
-     ./zsh
-     ./waybar
-     ./hypridle
+    ./hyprland
+    ./nvim
+    ./waybar
+    ./dunst
+    ./kitty
+    ./rofi
+    ./zsh
+    ./waybar
+    ./hypridle
+    ./tmux
   ];
 
   home.packages = with pkgs; [ 
@@ -37,6 +38,7 @@
     gzip
     unzip
     p7zip
+    tmux
   ];
 
 
