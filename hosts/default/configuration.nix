@@ -9,6 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
   security.polkit.enable = true;
   virtualisation.docker.enable = true;
   # programs.dconf.enable = true;
@@ -110,6 +111,7 @@
     font-awesome
     wl-clipboard
     docker-compose
+    dbeaver-bin
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
