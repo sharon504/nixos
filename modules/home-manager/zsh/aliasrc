@@ -35,6 +35,7 @@ nixssh() {
 alias cd="z"
 export EDITOR=nvim
 
+alias tlaunch="source .envrc && ./start-up.sh"
 alias ls='exa --long --no-time --icons=always --color=always --git --no-filesize --no-user --no-permissions'
 alias ll='ls -l'
 # ls, the common ones I use a lot shortened for rapid fire usage
