@@ -2,20 +2,20 @@ return {
 	"saghen/blink.cmp",
 	dependencies = {
 		{ "saghen/blink.compat", opts = { enable_events = true } },
-		-- {
-		-- "Exafunction/codeium.nvim",
-		-- dependencies = {
-		-- 	"nvim-lua/plenary.nvim",
-		-- },
-		-- opts = {},
-		-- config = function()
-		-- 	require("codeium").setup({})
-		-- end,
-		-- },
+		{
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {},
+		config = function()
+			require("codeium").setup({})
+		end,
+		},
 		"rafamadriz/friendly-snippets",
-		-- {
-		-- 	"giuxtaposition/blink-cmp-copilot",
-		-- },
+		{
+			"giuxtaposition/blink-cmp-copilot",
+		},
 		{
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",
@@ -37,8 +37,8 @@ return {
 		local formatter = lspkind.cmp_format({
 			mode = "symbol_text",
 			menu = {
-				-- copilot = "[Copilot]",
-				-- codeium = "[Codeium]",
+				copilot = "[Copilot]",
+				codeium = "[Codeium]",
 				lsp = "[LSP]",
 				buffer = "[Buffer]",
 				path = "[Path]",
@@ -81,24 +81,24 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
-				-- default = { "copilot", "codeium", "lsp", "path", "snippets", "buffer" },
+				-- default = { "lsp", "path", "snippets", "buffer" },
+				default = { "copilot", "codeium", "lsp", "path", "snippets", "buffer" },
 
 				providers = {
-					-- copilot = {
-					-- 	name = "copilot",
-					-- 	enabled = true,
-					-- 	module = "blink-cmp-copilot",
-					-- 	min_keyword_length = 0,
-					-- 	score_offset = 100, -- Higher priority than codeium
-					-- 	async = true,
-					-- },
-					-- codeium = {
-					-- 	name = "codeium",
-					-- 	module = "blink.compat.source",
-					-- 	enabled = true,
-					-- 	score_offset = 50, -- Higher than LSP but lower than Copilot
-					-- },
+					copilot = {
+						name = "copilot",
+						enabled = true,
+						module = "blink-cmp-copilot",
+						min_keyword_length = 0,
+						score_offset = 100, -- Higher priority than codeium
+						async = true,
+					},
+					codeium = {
+						name = "codeium",
+						module = "blink.compat.source",
+						enabled = true,
+						score_offset = 50, -- Higher than LSP but lower than Copilot
+					},
 					lsp = {
 						name = "lsp",
 						enabled = true,
