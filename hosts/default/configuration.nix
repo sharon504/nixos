@@ -77,7 +77,7 @@
 
   users.users.alpha = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
     packages = with pkgs; [
