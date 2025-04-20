@@ -39,6 +39,8 @@
     unzip
     p7zip
     tmux
+    pnpm
+    lazydocker
   ];
 
 

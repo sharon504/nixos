@@ -44,27 +44,23 @@
     '';
 
     plugins = with pkgs.tmuxPlugins; [
-      tpm
       sensible
       vim-tmux-navigator
-      tmux-battery
-      tmux-resurrect
-      # For Catppuccin, if not in `pkgs.tmuxPlugins`, add as a custom plugin
-    ];
-
-    pluginManager = "tpm";
-
-    extraPlugins = [
+      battery
+      resurrect
       {
-        plugin = "catppuccin/tmux";
-        settings = {
-          catppuccin_flavour = "mocha";
-          catppuccin_status_left = "session user";
-          catppuccin_status_right = "directory battery date_time";
-        };
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'mocha' 
+          set -g @catppuccin_window_status_style "rounded"
+          set -g status-left-length 100
+          set -g status-left ""
+          set -g status-right "#{E:@catppuccin_status_application}"
+          set -ag status-right "#{E:@catppuccin_status_gitmux}"
+          set -ag status-right "#{E:@catppuccin_status_user}"
+        '';
       }
     ];
 
-    # Set plugin options
   };
 }
