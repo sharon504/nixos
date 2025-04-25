@@ -26,6 +26,7 @@
     swww
     imagemagick
     playerctl
+    google-chrome
     brightnessctl
     eza
     hypridle

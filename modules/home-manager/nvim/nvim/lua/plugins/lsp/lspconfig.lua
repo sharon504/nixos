@@ -62,8 +62,8 @@ return {
 				{ buffer = bufnr, desc = "Show buffer diagnostics" }
 			)
 			keymap("n", "<leader>d", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show line diagnostics" })
-			keymap("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Go to previous diagnostic" })
-			keymap("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
+			keymap("n", "dn", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Go to previous diagnostic" })
+			keymap("n", "dp", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
 
 			-- Documentation and utilities
 			keymap(

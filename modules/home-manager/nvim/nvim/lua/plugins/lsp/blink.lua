@@ -149,7 +149,6 @@ return {
 				["<C-d>"] = { "scroll_documentation_down", "fallback" },
 
 				["<C-y>"] = { "accept", "fallback" },
-				["<CR>"] = { "accept", "fallback" },
 				["<Left>"] = { "show_signature", "hide_signature", "fallback" },
 			},
 
