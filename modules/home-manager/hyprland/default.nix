@@ -10,7 +10,7 @@
     xwayland = {
       enable = true;
     };
-    extraConfig = '''';
+    extraConfig =  builtins.readFile ./hypr/hyprland.conf;
   };
 
   programs.hyprlock = {

@@ -17,7 +17,7 @@
           file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         }
     ];
-    initExtra = builtins.readFile ./zshrc;
+    initContent = builtins.readFile ./zshrc;
   };
 
   home.sessionVariables = {
