@@ -17,6 +17,18 @@
     ./tmux
   ];
 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "fluent-gtk-theme";
+      package = pkgs.fluent-gtk-theme;
+    };
+    iconTheme = {
+      name = "fluent-icon-theme";
+      package = pkgs.fluent-icon-theme;
+    };
+  };
+
   home.packages = with pkgs; [ 
     zoxide
     fzf
