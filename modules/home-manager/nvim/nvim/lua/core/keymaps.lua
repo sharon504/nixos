@@ -69,9 +69,11 @@ vim.keymap.set(
 	{ desc = "Open terminal in float" }
 )
 
--- vim.keymap.set("n", "<leader>r", function()
--- 	print("Hell")
--- end, { desc = "Run the current file in terminal" })
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>", {desc = "to exit terminal mode"})
+vim.keymap.set("t", "<c-j>", "<c-\\><c-n><c-w>j", {desc = "To navigate to the bottom window"})
+vim.keymap.set("t", "<c-k>", "<c-\\><c-n><c-w>k", {desc = "To navigate to the top window"})
+vim.keymap.set("t", "<c-l>", "<c-\\><c-n><c-w>l", {desc = "To navigate to the right window"})
+vim.keymap.set("t", "<c-h>", "<c-\\><c-n><c-w>h", {desc = "To navigate to the left window"})
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center the cursor when Ctrl-D " })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center the cursor when Ctrl-U " })
@@ -84,4 +86,5 @@ vim.keymap.set("n", "<leader>sc", function()
 end, { desc = "Source the nvimrc" })
 
 vim.keymap.set("n", "<Esc>", "<Esc>:noh<CR>", { desc = "remap <Esc> key to remove search highlights" })
+vim.keymap.set("i", "<Esc>", "<Esc>:noh<CR>", { desc = "remap <Esc> key to remove search highlights" })
 vim.keymap.set("n", "<leader><leader>sc", "<cmd>source %<CR>", { desc = "source config files" })
