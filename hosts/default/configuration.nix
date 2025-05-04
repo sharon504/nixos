@@ -112,6 +112,10 @@
     wl-clipboard
     docker-compose
     dbeaver-bin
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
