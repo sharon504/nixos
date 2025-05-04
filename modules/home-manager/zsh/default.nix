@@ -11,11 +11,23 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     plugins = [
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+      }
+      {
+        name = "zsh-nix-shell";
+        src = pkgs.zsh-nix-shell;
+      }
     ];
     initContent = builtins.readFile ./zshrc;
   };
