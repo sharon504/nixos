@@ -2,16 +2,6 @@ return {
 	"saghen/blink.cmp",
 	dependencies = {
 		{ "saghen/blink.compat", opts = { enable_events = true } },
-		{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = {},
-		config = function()
-			require("codeium").setup({})
-		end,
-		},
 		"rafamadriz/friendly-snippets",
 		{
 			"giuxtaposition/blink-cmp-copilot",
@@ -38,7 +28,7 @@ return {
 			mode = "symbol_text",
 			menu = {
 				copilot = "[Copilot]",
-				codeium = "[Codeium]",
+				-- codeium = "[Codeium]",
 				lsp = "[LSP]",
 				buffer = "[Buffer]",
 				path = "[Path]",
@@ -81,8 +71,8 @@ return {
 			},
 
 			sources = {
-				-- default = { "lsp", "path", "snippets", "buffer" },
-				default = { "copilot", "codeium", "lsp", "path", "snippets", "buffer" },
+				default = {"copilot", "lsp", "path", "snippets", "buffer" },
+				-- default = { "copilot", "codeium", "lsp", "path", "snippets", "buffer" },
 
 				providers = {
 					copilot = {
@@ -93,12 +83,12 @@ return {
 						score_offset = 100, -- Higher priority than codeium
 						async = true,
 					},
-					codeium = {
-						name = "codeium",
-						module = "blink.compat.source",
-						enabled = true,
-						score_offset = 50, -- Higher than LSP but lower than Copilot
-					},
+					-- codeium = {
+					-- 	name = "codeium",
+					-- 	module = "blink.compat.source",
+					-- 	enabled = true,
+					-- 	score_offset = 50, -- Higher than LSP but lower than Copilot
+					-- },
 					lsp = {
 						name = "lsp",
 						enabled = true,
