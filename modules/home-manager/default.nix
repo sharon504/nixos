@@ -15,6 +15,7 @@
     ./waybar
     ./hypridle
     ./tmux
+    ./nwg-look
   ];
 
   gtk = {
