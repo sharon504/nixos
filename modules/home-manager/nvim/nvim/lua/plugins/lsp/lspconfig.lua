@@ -13,7 +13,6 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 
 		-- import cmp-nvim-lsp plugin
-		local blink_cmp_config = require("blink.cmp")
 
 		-- Set up diagnostic symbols
 		local function setup_diagnostic_signs()
@@ -87,7 +86,6 @@ return {
 		setup_diagnostic_signs()
 
 		-- Get capabilities from cmp
-		local capabilities = blink_cmp_config.get_lsp_capabilities()
 
 		-- Server-specific configurations
 		local server_configs = {
@@ -133,6 +131,7 @@ return {
 		}
 
 		-- Set up handler for mason-lspconfig
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		mason_lspconfig.setup_handlers({
 			-- Default handler for installed servers
 			function(server_name)

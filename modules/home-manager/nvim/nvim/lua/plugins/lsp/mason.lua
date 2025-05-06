@@ -17,12 +17,11 @@ return {
 
 		local mason_tool_installer = require("mason-tool-installer")
 
-		-- Try to get capabilities from blink.cmp if available
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		local has_cmp = pcall(require, "blink.cmp")
-		if has_cmp then
-			capabilities = capabilities
-		end
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local has_cmp, cmp = pcall(require, "cmp_nvim_lsp")
+    if has_cmp then
+        capabilities = cmp.default_capabilities()
+    end
 
 		-- Language server configuration
 		local servers = {
