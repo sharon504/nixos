@@ -39,6 +39,14 @@ return {
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
 	config = function()
+		-- Add keybindings for dapui
+		vim.keymap.set("n", "<leader>du", function()
+			local ok, dapui = pcall(require, "dapui")
+			if ok then
+				dapui.toggle()
+			end
+		end, { desc = "Toggle Debug UI" })
+
 		-- Define debug signs
 		local dap_signs = {
 			Breakpoint = { text = "●", texthl = "DiagnosticSignError", linehl = "", numhl = "" },
@@ -64,29 +72,46 @@ return {
 			)
 		end
 
-		-- Optional: Setup dap UI
-		local dapui = require("dapui")
-		dapui.setup()
+		-- Setup dap UI with protected calls
+		local ok, dapui = pcall(require, "dapui")
+		if ok then
+			dapui.setup({
+				-- Use a more conservative setup that doesn't change text automatically
+				-- This helps avoid the E565 error
+				controls = {
+					enabled = true,
+					element = "repl",
+				},
+				floating = {
+					border = "single",
+					mappings = {
+						close = { "q", "<Esc>" },
+					},
+				},
+			})
 
-		-- Auto open/close dapui
-		local dap = require("dap")
-		dap.listeners.after.event_initialized["dapui_config"] = function()
-			dapui.open()
-		end
-		dap.listeners.before.event_terminated["dapui_config"] = function()
-			dapui.close()
-		end
-		dap.listeners.before.event_exited["dapui_config"] = function()
-			dapui.close()
-		end
+			-- Add commands to manually open/close UI
+			vim.api.nvim_create_user_command("DapUIOpen", function()
+				pcall(dapui.open)
+			end, { desc = "Open DAP UI" })
 
-		-- Setup dap config by VsCode launch.json file
-		local vscode = require("dap.ext.vscode")
-		local plenary_json = require("plenary.json")
-		vscode.json_decode = function(str)
-			return vim.json.decode(plenary_json.json_strip_comments(str))
-		end
+			vim.api.nvim_create_user_command("DapUIClose", function()
+				pcall(dapui.close)
+			end, { desc = "Close DAP UI" })
 
+			-- You can uncomment these if you want to try auto open/close
+			-- Just be aware they might cause errors in some contexts
+			--
+			-- dap.listeners.after.event_initialized["dapui_config"] = function()
+			--   pcall(dapui.open)
+			-- end
+			-- dap.listeners.before.event_terminated["dapui_config"] = function()
+			--   pcall(dapui.close)
+			-- end
+			-- dap.listeners.before.event_exited["dapui_config"] = function()
+			--   pcall(dapui.close)
+			-- end
+		end
 		-- You can add specific language adapters here
 		-- For example:
 		-- require("dap").adapters.python = {
