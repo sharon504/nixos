@@ -6,6 +6,14 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+
+		{
+			"L3MON4D3/LuaSnip",
+			-- follow latest release.
+			version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+			-- install jsregexp (optional!).
+			build = "make install_jsregexp",
+		},
 	},
 	-- Not all LSP servers add brackets when completing a function.
 	-- To better deal with this, LazyVim adds a custom option to cmp,
@@ -113,6 +121,7 @@ return {
 				end,
 			}),
 			sources = cmp.config.sources({
+				{ name = "copilot", group_index = 2 },
 				{ name = "lazydev" },
 				{ name = "nvim_lsp" },
 				{ name = "path" },
@@ -148,5 +157,4 @@ return {
 			sorting = defaults.sorting,
 		}
 	end,
-	main = "lazyvim.util.cmp",
 }

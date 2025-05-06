@@ -3,18 +3,16 @@
 
 return {
 	"zbirenbaum/copilot.lua",
-	opts = {
-		suggestion = {
-			enabled = false,
-			auto_refresh = true,
-		},
-		panel = {
-			enabled = true,
-			auto_refresh = true,
-		},
-		filetypes = {
-			markdown = true,
-			help = true,
-		},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
 	},
+	config = function()
+		require("copilot").setup({
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+		})
+	end,
 }
