@@ -2,6 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
+    nix-ld.url = "github:Mic92/nix-ld";
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor = {
       url = "github:ndom91/rose-pine-hyprcursor";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nix-ld, nixpkgs, ... }@inputs:
     let
       # system = "x86_64-linux";
       system = "x86_64-linux";
@@ -34,7 +36,9 @@
         modules = [
           ./hosts/default/configuration.nix
           ./modules/kanata
+          nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.default
+          { programs.nix-ld.dev.enable = true; }
           {
             home-manager.useGlobalPkgs = true;
             home-manager.backupFileExtension = "HMBackup";
