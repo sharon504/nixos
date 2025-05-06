@@ -6,56 +6,7 @@ return {
 		server = {
 			on_attach = function(_, bufnr)
 				vim.keymap.set("n", "<leader>cR", function()
-					vim.cmd.RustLsp("codeAction")
-				end, { desc = "Code Action", buffer = bufnr })
-				vim.keymap.set("n", "<leader>dr", function()
-					vim.cmd.RustLsp("debuggables")
-				end, { desc = "Rust Debuggables", buffer = bufnr })
-			end,
-			default_settings = {
-				-- rust-analyzer language server configuration
-				["rust-analyzer"] = {
-					cargo = {
-						allFeatures = true,
-						loadOutDirsFromCheck = true,
-						buildScripts = {
-							enable = true,
-						},
-					},
-					-- Add clippy lints for Rust
-					checkOnSave = true,
-					-- Enable diagnostics
-					diagnostics = {
-						enable = true,
-					},
-					procMacro = {
-						enable = true,
-						ignored = {
-							["async-trait"] = { "async_trait" },
-							["napi-derive"] = { "napi" },
-							["async-recursion"] = { "async_recursion" },
-						},
-					},
-					files = {
-						excludeDirs = {
-							".direnv",
-							".git",
-							".github",
-							".gitlab",
-							"bin",
-							"node_modules",
-							"target",
-							"venv",
-							".venv",
-						},
-					},
-				},
-			},
-		},
-	},
-	config = function(_, opts)
-		-- Check if mason.nvim is available
-		local has_mason = pcall(require, "mason-registry")
+					vim.cmd.uire, "mason-registry")
 
 		if has_mason then
 			local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
