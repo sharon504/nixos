@@ -3,6 +3,8 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		{ "williamboman/mason-lspconfig.nvim" },
+		{ "williamboman/mason.nvim", config = true },
 		-- { "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
@@ -61,8 +63,7 @@ return {
 				{ buffer = bufnr, desc = "Show buffer diagnostics" }
 			)
 			keymap("n", "<leader>d", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show line diagnostics" })
-			keymap("n", "dn", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Go to previous diagnostic" })
-			keymap("n", "dp", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
+			keymap("n", "dn", vim.diagnostic.jump, { buffer = bufnr, desc = "Go to previous diagnostic" })
 
 			-- Documentation and utilities
 			keymap(
@@ -132,22 +133,27 @@ return {
 
 		-- Set up handler for mason-lspconfig
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		mason_lspconfig.setup_handlers({
-			-- Default handler for installed servers
-			function(server_name)
-				local config = {
-					capabilities = capabilities,
-				}
 
-				-- Merge with server-specific config if available
-				if server_configs[server_name] then
-					for k, v in pairs(server_configs[server_name]) do
-						config[k] = v
-					end
+		-- Make sure mason-lspconfig is properly set up first
+		mason_lspconfig.setup()
+
+		-- Get all installed servers
+		local installed_servers = mason_lspconfig.get_installed_servers()
+
+		-- Set up each installed server
+		for _, server_name in ipairs(installed_servers) do
+			local config = {
+				capabilities = capabilities,
+			}
+
+			-- Merge with server-specific config if available
+			if server_configs[server_name] then
+				for k, v in pairs(server_configs[server_name]) do
+					config[k] = v
 				end
+			end
 
-				lspconfig[server_name].setup(config)
-			end,
-		})
+			lspconfig[server_name].setup(config)
+		end
 	end,
 }

@@ -17,11 +17,11 @@ return {
 
 		local mason_tool_installer = require("mason-tool-installer")
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    local has_cmp, cmp = pcall(require, "cmp_nvim_lsp")
-    if has_cmp then
-        capabilities = cmp.default_capabilities()
-    end
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		local has_cmp, cmp = pcall(require, "cmp_nvim_lsp")
+		if has_cmp then
+			capabilities = cmp.default_capabilities()
+		end
 
 		-- Language server configuration
 		local servers = {
@@ -137,30 +137,32 @@ return {
 			ensure_installed = servers,
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,
+			automatic_enable = true,
 		})
 
-		-- Set up each installed LSP server
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				local opts = {
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						-- You can add custom on_attach logic here
-						-- For example, disable formatting for certain clients
-						if client.name == "tsserver" then
-							client.server_capabilities.documentFormattingProvider = false
-						end
-					end,
-				}
+		-- Get all installed servers
+		local installed_servers = mason_lspconfig.get_installed_servers()
 
-				-- Add server-specific options if they exist
-				if server_configs[server_name] then
-					opts = vim.tbl_deep_extend("force", opts, server_configs[server_name])
-				end
+		-- Set up each installed server
+		for _, server_name in ipairs(installed_servers) do
+			local opts = {
+				capabilities = capabilities,
+				on_attach = function(client)
+					-- You can add custom on_attach logic here
+					-- For example, disable formatting for certain clients
+					if client.name == "tsserver" then
+						client.server_capabilities.documentFormattingProvider = false
+					end
+				end,
+			}
 
-				lspconfig[server_name].setup(opts)
-			end,
-		})
+			-- Add server-specific options if they exist
+			if server_configs[server_name] then
+				opts = vim.tbl_deep_extend("force", opts, server_configs[server_name])
+			end
+
+			lspconfig[server_name].setup(opts)
+		end
 
 		mason_tool_installer.setup({
 			ensure_installed = tools,

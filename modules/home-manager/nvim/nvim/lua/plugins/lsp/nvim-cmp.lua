@@ -6,6 +6,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+		"onsails/lspkind.nvim",
 
 		{
 			"L3MON4D3/LuaSnip",
@@ -15,21 +16,34 @@ return {
 			build = "make install_jsregexp",
 		},
 	},
-	-- Not all LSP servers add brackets when completing a function.
-	-- To better deal with this, LazyVim adds a custom option to cmp,
-	-- that you can configure. For example:
-	--
-	-- ```lua
-	-- opts = {
-	--   auto_brackets = { "python" }
-	-- }
-	-- ```
 	opts = function()
-		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 		local cmp = require("cmp")
 		local defaults = require("cmp.config.default")()
 		local auto_select = true
+
+		local lspkind = require("lspkind")
+		cmp.setup({
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol", -- show only symbol annotations
+					maxwidth = {
+						-- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+						-- can also be a function to dynamically calculate max width such as
+						-- menu = function() return math.floor(0.45 * vim.o.columns) end,
+						menu = 50, -- leading text (labelDetails)
+						abbr = 50, -- actual suggestion item
+					},
+					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+
+					before = function(_entry, vim_item)
+						-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+						return vim_item
+					end,
+				}),
+			},
+		})
 
 		-- Local implementation to replace LazyVim.cmp functions
 		local cmp_utils = {
@@ -67,8 +81,29 @@ return {
 			end,
 		}
 
+		local function has_words_before()
+			if vim.bo[0].buftype == "prompt" then
+				return false
+			end
+			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+			return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+		end
+
+		cmp.setup({
+			mapping = {
+				["<Tab>"] = vim.schedule_wrap(function(fallback)
+					if cmp.visible() and has_words_before() then
+						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+					else
+						fallback()
+					end
+				end),
+			},
+		})
+
 		-- Icons for completion items
 		local kind_icons = {
+			Copilot = " ",
 			Text = "󰉿 ",
 			Method = "󰆧 ",
 			Function = "󰊕 ",
@@ -116,9 +151,13 @@ return {
 					cmp.abort()
 					fallback()
 				end,
-				["<tab>"] = function(fallback)
-					return cmp_utils.map({ "snippet_forward", "ai_accept" }, fallback)()
-				end,
+				["<tab>"] = vim.schedule_wrap(function(fallback)
+					if cmp.visible() and has_words_before() then
+						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+					else
+						fallback()
+					end
+				end),
 			}),
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
