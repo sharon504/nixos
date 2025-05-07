@@ -144,7 +144,9 @@ return {
 				["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 				["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<CR>"] = cmp_utils.confirm({ select = auto_select }),
+				["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+				["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+				["<C-l>"] = cmp_utils.confirm({ select = auto_select }),
 				["<C-y>"] = cmp_utils.confirm({ select = true }),
 				["<S-CR>"] = cmp_utils.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				["<C-CR>"] = function(fallback)

@@ -27,8 +27,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection downwards"
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection upwards" })
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+vim.keymap.set("n", "[d", vim.diagnostic.jump, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
@@ -69,11 +68,11 @@ vim.keymap.set(
 	{ desc = "Open terminal in float" }
 )
 
-vim.keymap.set("t", "<esc>", "<c-\\><c-n>", {desc = "to exit terminal mode"})
-vim.keymap.set("t", "<c-j>", "<c-\\><c-n><c-w>j", {desc = "To navigate to the bottom window"})
-vim.keymap.set("t", "<c-k>", "<c-\\><c-n><c-w>k", {desc = "To navigate to the top window"})
-vim.keymap.set("t", "<c-l>", "<c-\\><c-n><c-w>l", {desc = "To navigate to the right window"})
-vim.keymap.set("t", "<c-h>", "<c-\\><c-n><c-w>h", {desc = "To navigate to the left window"})
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "to exit terminal mode" })
+vim.keymap.set("t", "<c-j>", "<c-\\><c-n><c-w>j", { desc = "To navigate to the bottom window" })
+vim.keymap.set("t", "<c-k>", "<c-\\><c-n><c-w>k", { desc = "To navigate to the top window" })
+vim.keymap.set("t", "<c-l>", "<c-\\><c-n><c-w>l", { desc = "To navigate to the right window" })
+vim.keymap.set("t", "<c-h>", "<c-\\><c-n><c-w>h", { desc = "To navigate to the left window" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center the cursor when Ctrl-D " })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center the cursor when Ctrl-U " })
@@ -87,23 +86,22 @@ end, { desc = "Source the nvimrc" })
 
 vim.keymap.set("n", "<Esc>", "<Esc>:noh<CR>", { desc = "remap <Esc> key to remove search highlights" })
 vim.keymap.set("i", "<Esc>", "<Esc>:noh<CR>", { desc = "remap <Esc> key to remove search highlights" })
+
 vim.keymap.set("n", "<leader><leader>sc", "<cmd>source %<CR>", { desc = "source config files" })
 
 local bufnr = vim.api.nvim_get_current_buf()
+vim.keymap.set("n", "<leader>a", function()
+	vim.cmd.RustLsp("codeAction") -- supports rust-analyzer's grouping
+	-- or vim.lsp.buf.codeAction() if you don't want grouping.
+end, { silent = true, buffer = bufnr })
 vim.keymap.set(
-  "n", 
-  "<leader>a", 
-  function()
-    vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
-    -- or vim.lsp.buf.codeAction() if you don't want grouping.
-  end,
-  { silent = true, buffer = bufnr }
+	"n",
+	"K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+	function()
+		vim.cmd.RustLsp({ "hover", "actions" })
+	end,
+	{ silent = true, buffer = bufnr }
 )
-vim.keymap.set(
-  "n", 
-  "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
-  function()
-    vim.cmd.RustLsp({'hover', 'actions'})
-  end,
-  { silent = true, buffer = bufnr }
-)
+vim.keymap.set("n", "<leader>ng", function()
+	require("neogit").open()
+end, { desc = "Open neogit" })
