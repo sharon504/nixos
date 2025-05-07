@@ -37,7 +37,7 @@ return {
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
 
-					before = function(_entry, vim_item)
+					before = function(_, vim_item)
 						-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
 						return vim_item
 					end,

@@ -17,12 +17,22 @@ return {
 		-- import cmp-nvim-lsp plugin
 
 		-- Set up diagnostic symbols
+		-- Set up diagnostic symbols and config
 		local function setup_diagnostic_signs()
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
+
+			-- Configure diagnostics display
+			vim.diagnostic.config({
+				signs = true,
+				update_in_insert = false,
+				underline = true,
+				severity_sort = true,
+				virtual_text = true, -- Disable virtual text as we're showing signs in gutter
+			})
 		end
 
 		-- Configure keymaps for LSP
