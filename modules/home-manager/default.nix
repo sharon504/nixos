@@ -5,7 +5,6 @@
   home.homeDirectory = "/home/alpha";
   home.stateVersion = "24.05"; # Please read the comment before changing.
   imports = [
-    ./greetd
     ./hyprland
     ./nvim
     ./waybar

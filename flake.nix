@@ -36,6 +36,7 @@
         modules = [
           ./hosts/default/configuration.nix
           ./modules/kanata
+          ./modules/greetd
           nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.default
           { programs.nix-ld.dev.enable = true; }
