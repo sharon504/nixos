@@ -40,6 +40,8 @@
     imagemagick
     playerctl
     google-chrome
+    zoom-us
+    obs-studio
     brightnessctl
     eza
     hypridle

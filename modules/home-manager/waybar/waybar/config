@@ -46,7 +46,6 @@
     "modules-right": [
         "group/quicklinks",
         "group/hardware",
-        "pulseaudio",
         "network",
         "bluetooth",
         "battery" 

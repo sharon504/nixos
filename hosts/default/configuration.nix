@@ -19,13 +19,6 @@
       enable = true;
     };
   };
-  fileSystems = {
-     "/mnt/external" = {
-         device = "/dev/disk/by-uuiid/0E84-C869";  # Replace with the actual UUID
-         fsType = "exfat";
-         options = [ "auto,nofail,noatime,rw,user" ];
-     };
-  };
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono
     fira-sans
@@ -91,6 +84,28 @@
     ];
   };
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["gtk" "hyprland"];
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   # pulse.enable = true;
+  # };
+  services.pipewire.enable = true;
+  services.pipewire.alsa.enable = true;
+  services.pipewire.systemWide = true;
+
   environment.systemPackages = with pkgs; [
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -105,9 +120,11 @@
     nodejs
     inputs.zen-browser.packages."${system}".default
     python3
-    pulseaudioFull
-    pavucontrol
-    pamixer
+    # pulseaudioFull
+    # pavucontrol
+    # pamixer
+    pipewire
+    wireplumber
     blueman
     font-awesome
     wl-clipboard
