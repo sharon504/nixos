@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ config, pkgs, inputs, system, ... }:
 {
   imports =
     [
@@ -6,6 +6,10 @@
       inputs.home-manager.nixosModules.default
     ];
 
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.v4l2loopback.out
+  ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   nixpkgs.config.allowUnfree = true;
@@ -97,14 +101,14 @@
       pkgs.xdg-desktop-portal-hyprland
     ];
   };
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   # pulse.enable = true;
-  # };
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.systemWide = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    # pulse.enable = true;
+  };
+  # services.pipewire.enable = true;
+  # services.pipewire.alsa.enable = true;
+  # services.pipewire.systemWide = true;
 
   environment.systemPackages = with pkgs; [
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
@@ -120,11 +124,11 @@
     nodejs
     inputs.zen-browser.packages."${system}".default
     python3
-    # pulseaudioFull
-    # pavucontrol
-    # pamixer
-    pipewire
-    wireplumber
+    pulseaudioFull
+    pavucontrol
+    pamixer
+    # pipewire
+    # wireplumber
     blueman
     font-awesome
     wl-clipboard

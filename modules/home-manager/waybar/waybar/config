@@ -47,6 +47,7 @@
         "group/quicklinks",
         "group/hardware",
         "network",
+        "pulseaudio",
         "bluetooth",
         "battery" 
     ],
