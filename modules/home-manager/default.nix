@@ -36,6 +36,7 @@
     direnv
     rustup
     pywal
+    gimp
     swww
     imagemagick
     playerctl

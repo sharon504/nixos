@@ -8,6 +8,33 @@ return {
 	config = function()
 		-- import mason
 		local mason = require("mason")
+		-- enable mason and configure icons
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+				keymaps = {
+					-- Keymap to expand a package
+					toggle_package_expand = "<CR>",
+					-- Install the selected package
+					install_package = "i",
+					-- Update the selected package
+					update_package = "u",
+					-- Check for new version of the selected package
+					check_package_version = "c",
+					-- Update all installed packages
+					update_all_packages = "U",
+					-- Uninstall a package
+					uninstall_package = "X",
+					-- Cancel a package installation
+					cancel_installation = "<C-c>",
+				},
+			},
+			max_concurrent_installers = 10,
+		})
 
 		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
@@ -103,34 +130,6 @@ return {
 				},
 			},
 		}
-
-		-- enable mason and configure icons
-		mason.setup({
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-				keymaps = {
-					-- Keymap to expand a package
-					toggle_package_expand = "<CR>",
-					-- Install the selected package
-					install_package = "i",
-					-- Update the selected package
-					update_package = "u",
-					-- Check for new version of the selected package
-					check_package_version = "c",
-					-- Update all installed packages
-					update_all_packages = "U",
-					-- Uninstall a package
-					uninstall_package = "X",
-					-- Cancel a package installation
-					cancel_installation = "<C-c>",
-				},
-			},
-			max_concurrent_installers = 10,
-		})
 
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
