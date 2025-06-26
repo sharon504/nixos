@@ -30,8 +30,9 @@
     };
   };
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     zoxide
+    ani-cli
     fzf
     direnv
     rustup

@@ -17,9 +17,17 @@
   security.polkit.enable = true;
   virtualisation.docker.enable = true;
   # programs.dconf.enable = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland = {
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland = {
+        enable = true;
+      };
+    };
+    adb = {
+      enable = true;
+    };
+    kdeconnect = {
       enable = true;
     };
   };
@@ -46,6 +54,11 @@
   };
 
   networking = {
+    firewall = {
+      enable = false;
+      # allowedTCPPorts = [ 22 8081 ];
+      # allowedUDPPorts = [ 8081 ];
+    };
     networkmanager = {
       enable = true;
       dns = "none";
@@ -73,9 +86,13 @@
   services.libinput.enable = true;
   services.openssh.enable = true;
 
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+
   users.users.alpha = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "kvm" "adbusers" ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
     packages = with pkgs; [
@@ -92,8 +109,8 @@
     enable = true;
     xdgOpenUsePortal = true;
     config = {
-      common.default = ["gtk"];
-      hyprland.default = ["gtk" "hyprland"];
+      common.default = [ "gtk" ];
+      hyprland.default = [ "gtk" "hyprland" ];
     };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
@@ -122,6 +139,7 @@
     vimPlugins.telescope-fzf-native-nvim
     unzip
     nodejs
+    androidenv.androidPkgs.platform-tools
     inputs.zen-browser.packages."${system}".default
     python3
     pulseaudioFull
@@ -135,9 +153,12 @@
     docker-compose
     dbeaver-bin
     xfce.thunar
+    firefox
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
+    android-studio
+    xorg.libX11
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
