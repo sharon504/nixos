@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1749358668,
-        "narHash": "sha256-V91nN4Q9ZwX0N+Gzu+F8SnvzMcdURYnMcIvpfLQzD5M=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "06451df423dd5e555f39857438ffc16c5b765862",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "hypridle": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
@@ -209,7 +189,6 @@
     },
     "root": {
       "inputs": {
-        "home-manager": "home-manager",
         "hypridle": "hypridle",
         "nix-ld": "nix-ld",
         "nixpkgs": "nixpkgs",
