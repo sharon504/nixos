@@ -40,6 +40,11 @@
     zsh = {
       enable = true;
       enableCompletion = true;
+      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      autosuggestions = { enable = true; };
+      syntaxHighlighting = {
+        enable = true;
+      };
     };
   };
 
@@ -71,12 +76,15 @@
     imagemagick
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     inputs.zen-browser.packages."${system}".default
+    kanata
     kitty
     lazydocker
+    libinput
     libreoffice
     nodejs
     nwg-look
     obs-studio
+    openssh
     p7zip
     pamixer
     pavucontrol
@@ -107,6 +115,7 @@
     yazi
     zoom-us
     zoxide
+    zsh-powerlevel10k
   ];
   xdg.portal = {
     enable = true;
