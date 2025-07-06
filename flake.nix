@@ -17,10 +17,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nix-ld, nixpkgs, ... }@inputs:
@@ -35,17 +31,8 @@
         };
         modules = [
           ./hosts/default/configuration.nix
-          ./modules/kanata
-          ./modules/greetd
           nix-ld.nixosModules.nix-ld
-          inputs.home-manager.nixosModules.default
           { programs.nix-ld.dev.enable = true; }
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.backupFileExtension = "HMBackup";
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
-          }
         ];
       };
     };

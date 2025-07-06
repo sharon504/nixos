@@ -3,8 +3,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
       ./programs.nix
+      ./services.nix
     ];
 
   boot.kernelModules = [ "v4l2loopback" ];
@@ -17,21 +17,6 @@
   nixpkgs.config.allowUnsupportedSystem = true;
   security.polkit.enable = true;
   virtualisation.docker.enable = true;
-  # programs.dconf.enable = true;
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland = {
-        enable = true;
-      };
-    };
-    adb = {
-      enable = true;
-    };
-    kdeconnect = {
-      enable = true;
-    };
-  };
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono
     fira-sans
@@ -75,21 +60,8 @@
     ];
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "alpha" = import ../../modules/home-manager;
-    };
-  };
-
   time.timeZone = "Asia/Kolkata";
 
-  services.libinput.enable = true;
-  services.openssh.enable = true;
-
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
 
   users.users.alpha = {
     isNormalUser = true;
@@ -104,24 +76,7 @@
     ];
   };
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    config = {
-      common.default = [ "gtk" ];
-      hyprland.default = [ "gtk" "hyprland" ];
-    };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-  };
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-  };
-
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
