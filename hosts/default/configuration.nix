@@ -4,6 +4,7 @@
     [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ./programs.nix
     ];
 
   boot.kernelModules = [ "v4l2loopback" ];
@@ -97,9 +98,7 @@
     ignoreShellProgramCheck = true;
     packages = with pkgs; [
       tree
-      kitty
       brightnessctl
-      spotify
       blueman
       neofetch
     ];
@@ -121,45 +120,8 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    # pulse.enable = true;
   };
-  # services.pipewire.enable = true;
-  # services.pipewire.alsa.enable = true;
-  # services.pipewire.systemWide = true;
 
-  environment.systemPackages = with pkgs; [
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    nwg-look
-    wget
-    kitty
-    git
-    gnumake
-    cmake
-    vimPlugins.telescope-fzf-native-nvim
-    unzip
-    nodejs
-    androidenv.androidPkgs.platform-tools
-    inputs.zen-browser.packages."${system}".default
-    python3
-    pulseaudioFull
-    pavucontrol
-    pamixer
-    # pipewire
-    # wireplumber
-    blueman
-    font-awesome
-    wl-clipboard
-    docker-compose
-    dbeaver-bin
-    xfce.thunar
-    firefox
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-    xfce.thunar-media-tags-plugin
-    android-studio
-    xorg.libX11
-  ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

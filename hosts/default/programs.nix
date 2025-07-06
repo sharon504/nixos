@@ -1,0 +1,66 @@
+{ config, pkgs, inputs, system, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    android-studio
+    androidenv.androidPkgs.platform-tools
+    ani-cli
+    blueman
+    brightnessctl
+    bzip2
+    cmake
+    dbeaver-bin
+    direnv
+    docker-compose
+    eza
+    firefox
+    font-awesome
+    fzf
+    gimp
+    git
+    gnumake
+    gnutar
+    google-chrome
+    gzip
+    hypridle
+    hyprshot
+    imagemagick
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    inputs.zen-browser.packages."${system}".default
+    kitty
+    kitty
+    lazydocker
+    libreoffice
+    nodejs
+    nwg-look
+    obs-studio
+    p7zip
+    pamixer
+    pavucontrol
+    playerctl
+    pnpm
+    pulseaudioFull
+    python3
+    pywal
+    ripgrep
+    rustup
+    spotify
+    swww
+    tmux
+    unrar
+    unzip
+    unzip
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vimPlugins.telescope-fzf-native-nvim
+    wget
+    wl-clipboard
+    xfce.thunar
+    xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
+    xfce.thunar-volman
+    xorg.libX11
+    yazi
+    zoom-us
+    zoxide
+  ];
+
+}

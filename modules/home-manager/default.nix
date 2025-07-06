@@ -32,6 +32,7 @@
 
   home.packages = with pkgs; [
     zoxide
+    libreoffice
     ani-cli
     fzf
     direnv
