@@ -11,7 +11,30 @@
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback.out
   ];
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      useOSProber = true;
+      copyKernels = true;
+      efiSupport = true;
+      fsIdentifier = "label";
+      devices = [ "nodev" ];
+      extraEntries = ''
+        menuentry "Reboot" {
+            reboot
+        }
+        menuentry "Poweroff" {
+            halt
+        }
+      '';
+    };
+  };
+  boot.loader.grub2-theme = {
+    enable = true;
+    theme = "vimix";
+    footer = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;

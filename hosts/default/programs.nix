@@ -69,6 +69,7 @@
     git
     gnumake
     gnutar
+    go
     google-chrome
     gzip
     hypridle
@@ -116,6 +117,7 @@
     zoom-us
     zoxide
     zsh-powerlevel10k
+    catppuccin-gtk
   ];
   xdg.portal = {
     enable = true;

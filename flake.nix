@@ -4,6 +4,9 @@
   inputs = {
     nix-ld.url = "github:Mic92/nix-ld";
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+    };
     rose-pine-hyprcursor = {
       url = "github:ndom91/rose-pine-hyprcursor";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +34,7 @@
         };
         modules = [
           ./hosts/default/configuration.nix
+          inputs.grub2-themes.nixosModules.default
           nix-ld.nixosModules.nix-ld
           { programs.nix-ld.dev.enable = true; }
         ];
