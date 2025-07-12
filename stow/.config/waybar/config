@@ -13,13 +13,13 @@
 
     // Position TOP
     "layer": "top",
-    "margin-top": 4,
-    "margin-bottom": 0,
+    // "margin-top": 4,
+    "margin-bottom": 1,
 
     // Position BOTTOM
     // "position": "bottom",
     // "margin-top": 0,
-    // "margin-bottom": 14,
+    // "margin-bottom": 0,
     
     "layer": "top",
     "height": 16,

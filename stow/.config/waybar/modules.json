@@ -13,10 +13,7 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "sort-by-name": true,
-    "format": "{icon}",
-    "format-icons": {
-      "default": " "
-    }
+    "format": "{name}"
   },
 
   // Hyprland Window
@@ -42,7 +39,7 @@
   // Rofi Application Launcher
   "custom/appmenu": {
     "format": "󱄅 ",
-    "on-click": "~/dotfiles/rofi/launchers/type-1/launcher.sh/applauncher.sh",
+    "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
     "tooltip": false
   },
 

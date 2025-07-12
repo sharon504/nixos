@@ -16,6 +16,7 @@ _comp_options+=(globdots)
 
 bindkey '^ ' autosuggest-accept
 bindkey '' backward-delete-word
+cat ~/.cache/wal/sequences
 
 [ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"
 eval "$(direnv hook zsh)"

@@ -1,354 +1,132 @@
 /*
- * __        __          _                  ____  _         _       
- * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
- *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
- *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
- *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
- *                 |___/                              |___/         
- *  
- * by Stephan Raabe (2023) 
- * ----------------------------------------------------- 
-*/
-
-/* -----------------------------------------------------
- * Import Pywal colors 
- * ----------------------------------------------------- */
+ * Waybar Style – Blended Background with Image Colors
+ */
 @import "../../.cache/wal/colors-waybar.css";
-@import "mocha.css";
-
-/* -----------------------------------------------------
- * General 
- * ----------------------------------------------------- */
-
 * {
-  font-family:
-    "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 13px;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0.8);
-  border-bottom: 0px solid #ffffff;
-  /* color: @foreground; */
-  background: transparent;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  margin-top: 0px;
+  background-color: alpha(@background, 0.9);
+  color: @foreground;
+  padding: 0 10px;
 }
 
-/* -----------------------------------------------------
- * Workspaces 
- * ----------------------------------------------------- */
-
+/* ----------------- Workspaces ----------------- */
 #workspaces {
-  margin: 5px;
-  margin-left: 1rem;
-  background-color: @surface0;
-  border-radius: 1rem;
-  padding: 0.2rem; /* optional: helps spacing between circular buttons */
+  padding: 0 8px;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 50%; /* make it circular */
-  padding: 0.2rem;
-  min-width: 1.5rem; /* prevent collapse */
-  min-height: 1.5rem;
-  margin: 0.1rem; /* spacing between buttons */
+  padding: 4px 10px;
+  margin: 0 4px;
+  /* background: @background; */
+  color: @foreground;
+  border-bottom: 2px solid;
+  transition: all 0.2s ease;
 }
 
 #workspaces button.active {
-  color: @sky;
-  border-radius: 50%;
+  border-bottom: 2px solid @color4;
+  color: @color4;
+  background-color: alpha(@color4, 0.15);
+  border-radius: 4px;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 50%;
-  background-color: @overlay0; /* optional: hover bg */
+  border-bottom: 2px solid @color6;
+  color: @color6;
+  background-color: alpha(@color6, 0.15);
+  border-radius: 4px;
 }
 
-/* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
-
-#window {
-  background: #ffffff;
-  margin: 1px 5px 5px 0px;
-  padding: 2px 10px 0px 10px;
-  border-radius: 12px;
-  color: @foreground;
-  background: @background;
-  font-size: 16px;
-  font-weight: normal;
-  opacity: 0.8;
-}
-
-window#waybar.empty #window {
-  background-color: transparent;
-}
-
-/* -----------------------------------------------------
- * Taskbar
- * ----------------------------------------------------- */
-
-#taskbar {
-  background: @background;
-  margin: 1px 5px 3px 0px;
-  padding: 2px 3px 1px 3px;
-  border-radius: 14px;
-  font-weight: normal;
-  font-style: normal;
-  opacity: 0.8;
-}
-
-#taskbar button {
-  margin: 0;
-  padding: 0px 5px 0px 5px;
-}
-
-#taskbar.empty {
-  background-color: transparent;
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
-}
-
-/* -----------------------------------------------------
- * Modules
- * ----------------------------------------------------- */
-
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-/* -----------------------------------------------------
- * Custom Quicklinks
- * ----------------------------------------------------- */
-
-#custom-brave,
-#custom-outlook,
-#custom-filemanager,
-#custom-teams,
-#custom-chatgpt,
-#custom-calculator,
-#custom-windowsvm {
-  font-size: 20px;
-  font-weight: bold;
-  color: @foreground;
-  background-color: @background;
-  border-radius: 14px;
-  padding: 1px 10px 0px 10px;
-  margin: 1px 5px 3px 0px;
-  opacity: 0.8;
-}
-
-/* -----------------------------------------------------
- * Custom Modules
- * ----------------------------------------------------- */
-
-#custom-appmenu {
-  background-color: @background;
-  font-size: 23px;
-  color: @foreground;
-  border-radius: 14px;
-  padding: 0px 10px 0px 18px;
-  margin: 1px 5px 3px 14px;
-  opacity: 0.8;
-}
-
-/* -----------------------------------------------------
- * Custom Exit
- * ----------------------------------------------------- */
-
-#custom-exit {
-  font-size: 20px;
-  color: @foreground;
-  background-color: @background;
-  border-radius: 14px;
-  padding: 1px 10px 0px 10px;
-  margin: 1px 5px 3px 0px;
-  opacity: 0.8;
-}
-
-/* -----------------------------------------------------
- * Hardware Group
- * ----------------------------------------------------- */
-
-#disk,
+/* ----------------- Module Defaults ----------------- */
+#clock,
+#cpu,
 #memory,
-#cpu {
+#battery,
+#network,
+#pulseaudio,
+#bluetooth,
+#custom-appmenu,
+#custom-filemanager,
+#custom-exit,
+#user,
+#tray {
+  padding: 4px 10px;
+  margin: 0;
+  /* background-color: alpha(@color0, 0.7); */
   color: @foreground;
-  background-color: @background;
-  font-size: 16px;
-  border-radius: 14px;
-  padding: 1px 10px 0px 10px;
-  margin: 1px 5px 3px 0px;
-  opacity: 0.8;
 }
 
-#memory {
-  margin-right: 10px;
+/* ----------------- Hover ----------------- */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#custom-appmenu:hover,
+#custom-filemanager:hover,
+#custom-exit:hover,
+#user:hover {
+  background-color: alpha(@color1, 0.8);
+  color: @color7;
 }
 
-/* -----------------------------------------------------
- * Clock
- * ----------------------------------------------------- */
-
-#clock {
-  background-color: @background;
-  font-size: 16px;
-  color: @foreground;
-  border-radius: 14px;
-  padding: 1px 10px 0px 10px;
-  margin: 1px 5px 3px 0px;
-  opacity: 0.8;
-}
-
-/* -----------------------------------------------------
- * Pulseaudio
- * ----------------------------------------------------- */
-
-#pulseaudio {
-  background-color: @background;
-  font-size: 16px;
-  color: @foreground;
-  border-radius: 12px;
-  padding: 2px 10px 0px 10px;
-  margin: 1px 5px 5px 0px;
-  opacity: 0.8;
-}
-
+/* ----------------- Pulseaudio ----------------- */
 #pulseaudio.muted {
-  background-color: @background;
-  color: @foreground;
+  /* background-color: alpha(@color1, 0.6); */
+  color: @color7;
 }
 
-/* -----------------------------------------------------
- * Network
- * ----------------------------------------------------- */
-
-#network {
-  background-color: @background;
-  font-size: 16px;
-  color: @foreground;
-  border-radius: 14px;
-  padding: 2px 10px 0px 10px;
-  margin: 1px 5px 3px 0px;
-  opacity: 0.8;
+/* ----------------- Custom app menu ----------------- */
+#custom-appmenu {
+  background-color: alpha(@color2, 0.7);
+  color: @color7;
 }
 
-#network.wifi {
-  background-color: @background;
-  color: @foreground;
-}
-
-/* -----------------------------------------------------
- * Bluetooth
- * ----------------------------------------------------- */
-
-#bluetooth.on,
-#bluetooth.connected {
-  background-color: @background;
-  font-size: 16px;
-  color: @foreground;
-  border-radius: 12px;
-  padding: 2px 10px 0px 10px;
-  margin: 1px 5px 5px 0px;
-  opacity: 0.8;
-}
-
-#bluetooth.off {
-  background-color: transparent;
-  padding: 0px;
-  margin: 0px;
-}
-
-/* -----------------------------------------------------
- * Battery
- * ----------------------------------------------------- */
-
-#battery {
-  background-color: @background;
-  font-size: 16px;
-  color: @foreground;
-  border-radius: 12px;
-  padding: 2px 15px 0px 10px;
-  margin: 1px 5px 5px 0px;
-  opacity: 0.8;
-}
-
+/* ----------------- Battery ----------------- */
 #battery.charging,
 #battery.plugged {
-  color: @foreground;
-  background-color: @background;
-}
-
-@keyframes blink {
-  to {
-    background-color: @background;
-    color: @foreground;
-  }
+  background-color: alpha(@color2, 0.7);
+  color: @color7;
 }
 
 #battery.critical:not(.charging) {
-  background-color: @background;
-  color: @foreground;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  background-color: alpha(@color1, 0.9);
+  color: @color7;
+  animation: pulse 1s ease-in-out infinite;
 }
 
-/* -----------------------------------------------------
- * Tray
- * ----------------------------------------------------- */
-
-#tray {
-  background-color: @background;
+@keyframes pulse {
+  0% {
+  }
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
+/* ----------------- Tray ----------------- */
 #tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: @background;
+  background-color: alpha(@color1, 0.8);
+  color: @color7;
 }
 
-/* -----------------------------------------------------
- * Other
- * ----------------------------------------------------- */
-
-label:focus {
-  background-color: @background;
-}
-
-#backlight {
-  background-color: @background;
-}
-
-#network {
-  background-color: @background;
-}
-
-#network.disconnected {
-  background-color: @background;
-}
-
-#upower {
-  background-color: @background;
-  font-size: 16px;
-  color: @foreground;
-  border-radius: 12px;
-  padding: 2px 15px 0px 10px;
-  margin: 1px 5px 5px 0px;
-  opacity: 0.8;
+/* ----------------- Window Title ----------------- */
+#window {
+  padding: 4px 10px;
+  margin: 0 5px;
+  background-color: alpha(@color4, 0.15);
+  color: @color4;
 }

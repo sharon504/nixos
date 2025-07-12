@@ -85,10 +85,9 @@
 
   time.timeZone = "Asia/Kolkata";
 
-
   users.users.alpha = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "kvm" "adbusers" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "kvm" "adbusers" "uniput" ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
     packages = with pkgs; [

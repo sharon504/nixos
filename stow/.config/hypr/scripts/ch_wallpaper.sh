@@ -18,10 +18,9 @@ while true; do
 
     # Remove the selected wallpaper from the array
     swww img "$selectedWallpaper" $trans
-    unset "wallpapers[$wallpaperIndex]"
 
     # Delay for 2 hours before selecting the next wallpaper
-    wal -i $(cat ~/.cache/swww/eDP-1)
+    wal -i $(sed -n '2p' ~/.cache/swww/eDP-1)
     pkill waybar 
     waybar &
     rm -rf ~/.cache/current_wallpaper.jpg

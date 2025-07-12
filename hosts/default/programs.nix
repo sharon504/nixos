@@ -85,6 +85,7 @@
     nodejs
     nwg-look
     obs-studio
+    obsidian
     openssh
     p7zip
     pamixer
@@ -100,6 +101,7 @@
     spotify
     stow
     swww
+    tableplus
     tmux
     unrar
     unzip
@@ -108,6 +110,7 @@
     waybar
     wget
     wl-clipboard
+    wlogout
     xfce.thunar
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
