@@ -32,7 +32,7 @@
   // Filemanager Launcher
   "custom/filemanager": {
     "format": " ",
-    "on-click": "~/.config/hypr/scripts/wallpaper &",
+    "on-click": "~/.config/hypr/scripts/waypaper.sh",
     "tooltip": false
   },
 

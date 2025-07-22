@@ -65,7 +65,7 @@
     firefox
     font-awesome
     fzf
-    gimp
+    gcc
     git
     gnumake
     gnutar
@@ -95,6 +95,7 @@
     pulseaudioFull
     python3
     pywal
+    pywalfox-native
     ripgrep
     rofi
     rustup
@@ -108,6 +109,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vimPlugins.telescope-fzf-native-nvim
     waybar
+    waypaper
     wget
     wl-clipboard
     wlogout
