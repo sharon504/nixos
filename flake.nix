@@ -20,6 +20,7 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms.url = "github:AvengeMedia/DankMaterialShell";
   };
 
   outputs = { self, nix-ld, nixpkgs, ... }@inputs:
