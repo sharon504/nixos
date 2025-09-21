@@ -53,21 +53,16 @@ return {
 		-- Language server configuration
 		local servers = {
 			-- Web development
-			"html",
-			"cssls",
-			"tailwindcss",
-			"svelte",
-			"emmet_ls",
-			"ts_ls",
+			-- "eslint",
 
 			-- Lua development
-			"lua_ls",
+			-- "lua_ls",
 
 			-- Python development
-			"pyright",
+			-- "pyright",
 
 			-- C/C++ development
-			"clangd",
+			-- "clangd",
 		}
 
 		-- Formatters and linters configuration

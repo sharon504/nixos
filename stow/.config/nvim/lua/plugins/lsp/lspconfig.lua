@@ -3,8 +3,8 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+    { "williamboman/mason.nvim", config = true },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{ "williamboman/mason.nvim", config = true },
 		-- { "folke/neodev.nvim", opts = {} },
 	},
 	config = function()

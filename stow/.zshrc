@@ -29,9 +29,9 @@ source /usr/share/zsh/plugins/autojump/autojump.zsh 2>/dev/null
 eval "$(ssh-agent -s)" >/dev/null
 eval "$(fzf --zsh)"
 
-export FZF_DEFAULT_COMMAND="fd -H --strip-cwd-prefix -E '.git'"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d -H --strip-cwd-prefix -E '.git'"
+# export FZF_DEFAULT_COMMAND="fd -H --strip-cwd-prefix -E '.git'"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_ALT_C_COMMAND="fd --type=d -H --strip-cwd-prefix -E '.git'"
 
 _fzf_compgen_path() {
   fd -H -E '.git' . "$1"
