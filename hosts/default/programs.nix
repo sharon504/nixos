@@ -59,7 +59,7 @@
     dbeaver-bin
     direnv
     docker-compose
-    dms.packages.x86_64-linux.default
+    dms.default
     dunst
     eza
     firefox
