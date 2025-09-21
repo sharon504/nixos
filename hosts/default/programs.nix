@@ -1,6 +1,5 @@
 { pkgs, inputs, system, ... }:
 {
-
   programs = {
     hyprland = {
       enable = true;
@@ -14,7 +13,6 @@
     kdeconnect = {
       enable = true;
     };
-
     lazygit.enable = true;
     git = {
       enable = true;
@@ -55,17 +53,20 @@
     ani-cli
     blueman
     brightnessctl
+    burpsuite
     bzip2
     cmake
     dbeaver-bin
     direnv
     docker-compose
+    dms.packages.x86_64-linux.default
     dunst
     eza
     firefox
     font-awesome
     fzf
     gcc
+    gemini-cli
     git
     gnumake
     gnutar
@@ -82,6 +83,7 @@
     lazydocker
     libinput
     libreoffice
+    nest-cli
     nodejs
     nwg-look
     obs-studio
@@ -91,7 +93,9 @@
     pamixer
     pavucontrol
     playerctl
+    pipewire
     pnpm
+    postman
     pulseaudioFull
     python3
     pywal
@@ -110,7 +114,9 @@
     vimPlugins.telescope-fzf-native-nvim
     waybar
     waypaper
+    webcord
     wget
+    wireplumber
     wl-clipboard
     wlogout
     xfce.thunar
@@ -124,17 +130,25 @@
     zsh-powerlevel10k
     catppuccin-gtk
   ];
+  programs.niri = {
+    enable = true;
+  };
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
-    config = {
-      common.default = [ "gtk" ];
-      hyprland.default = [ "gtk" "hyprland" ];
+     lxqt = {
+      enable = true;
+      styles = [ pkgs.libsForQt5.qtstyleplugin-kvantum ];
     };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-hyprland
-    ];
+
+    # xdgOpenUsePortal = true;
+    # config = {
+    #   common.default = [ "gtk" ];
+    #   hyprland.default = [ "gtk" "hyprland" ];
+    # };
+    # extraPortals = [
+    #   pkgs.xdg-desktop-portal-gtk
+    #   # pkgs.xdg-desktop-portal-wlr
+    #   pkgs.xdg-desktop-portal-hyprland
+    # ];
   };
 }

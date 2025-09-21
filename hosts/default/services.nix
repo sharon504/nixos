@@ -1,6 +1,7 @@
 { config, pkgs, inputs, system, ... }:
 {
-
+  systemd.user.services.xwayland-satellite.wantedBy = [ "graphical-session.target" ];
+  services.displayManager.defaultSession = "niri";
   services = {
     libinput = { enable = true; };
     openssh = { enable = true; };
@@ -71,8 +72,9 @@
                     --remember \
                     --remember-session \
                     --asterisks \
-                    --time '';
-          user = "greeter";
+                    --time \
+                    --sessions ${pkgs.niri}/share/wayland-sessions'';
+          user = "alpha";
         };
       };
     };
