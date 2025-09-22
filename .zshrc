@@ -60,3 +60,4 @@ _fzf_comprun() {
 }
 
 eval "$(zoxide init zsh)"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
