@@ -71,7 +71,7 @@ return {
 			"prettier", -- formatter for web languages
 
 			-- Lua
-			"stylua", -- lua formatter
+			-- "stylua", -- lua formatter
 
 			-- Python
 			"isort", -- python formatter

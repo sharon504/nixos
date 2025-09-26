@@ -2,32 +2,33 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local conform = require("conform")
-
+		local conform = require('conform')
+		
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				svelte = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				markdown = { "prettier" },
-				graphql = { "prettier" },
-				liquid = { "prettier" },
+				javascript = { "biome" },
+				typescript = { "biome" },
+				javascriptreact = { "biome" },
+				typescriptreact = { "biome" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "black", "isort" },
 			},
+			formatters = {
+				biome = {
+					-- Let conform.nvim use the default biome command resolution
+					-- This will use Mason's biome or system biome automatically
+					cwd = require("conform.util").root_file({ "biome.json", ".git" }),
+					require_cwd = true,
+				},
+			},
+			-- Optional: Format on save
 			format_on_save = {
-				lsp_fallback = true,
-				async = true,
-				timeout_ms = 1000,
+				-- timeout_ms = 500,
+				-- lsp_fallback = true,
 			},
 		})
-
+		
+		-- Format keybinding
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,

@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-    { "williamboman/mason.nvim", config = true },
+		{ "williamboman/mason.nvim", config = true },
 		{ "williamboman/mason-lspconfig.nvim" },
 		-- { "folke/neodev.nvim", opts = {} },
 	},
@@ -97,6 +97,7 @@ return {
 		setup_diagnostic_signs()
 
 		-- Get capabilities from cmp
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Server-specific configurations
 		local server_configs = {
@@ -139,19 +140,38 @@ return {
 					},
 				},
 			},
+			-- Add Biome configuration here
+			biome = {
+				root_dir = require("lspconfig.util").root_pattern("biome.json", ".git"),
+				single_file_support = false,
+			},
 		}
 
-		-- Set up handler for mason-lspconfig
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- Make sure Mason is set up before mason-lspconfig
+		require("mason").setup()
+		mason_lspconfig.setup({
+			-- Only include actual LSP servers
+			ensure_installed = {}, -- Add your LSP servers here if needed
+		})
 
-		-- Make sure mason-lspconfig is properly set up first
-		mason_lspconfig.setup()
-
-		-- Get all installed servers
+		-- Get all installed servers and filter out non-LSP tools
 		local installed_servers = mason_lspconfig.get_installed_servers()
+		
+		-- Explicitly define which tools are NOT LSP servers
+		local non_lsp_tools = { 
+			"stylua", "biome", "prettier", "eslint_d", "black", "isort", 
+			"clang-format", "cpplint", "pylint" 
+		}
+		local lsp_servers = {}
+		
+		for _, server in ipairs(installed_servers) do
+			if not vim.tbl_contains(non_lsp_tools, server) then
+				table.insert(lsp_servers, server)
+			end
+		end
 
-		-- Set up each installed server
-		for _, server_name in ipairs(installed_servers) do
+		-- Set up each LSP server (excluding formatters)
+		for _, server_name in ipairs(lsp_servers) do
 			local config = {
 				capabilities = capabilities,
 			}
@@ -165,5 +185,23 @@ return {
 
 			lspconfig[server_name].setup(config)
 		end
+
+		-- Set up Biome LSP explicitly since we removed it from Mason loop
+		lspconfig.biome.setup({
+			-- Use generic biome command - it will find Mason's installation automatically
+			capabilities = capabilities,
+			root_dir = function(fname)
+				return require("lspconfig.util").root_pattern("biome.json", ".git")(fname)
+			end,
+			single_file_support = false,
+			filetypes = {
+				"javascript",
+				"javascriptreact", 
+				"typescript",
+				"typescriptreact",
+				"json",
+				"jsonc"
+			},
+		})
 	end,
 }
